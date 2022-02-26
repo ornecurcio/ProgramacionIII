@@ -2,7 +2,7 @@
 
 //======================================================================
 // Partiendo del ejercicio anterior, modificar la salida por pantalla para que se visualice
-// el valor de la variable $x, el valor de la variable $y y el resultado fianl en 
+// el valor de la variable $x, el valor de la variable $y y el resultado final en 
 // lineas distintas(recordar que el salto de linea en HTML es la etiqueta <br/>)
 //======================================================================
     $x = -3;
