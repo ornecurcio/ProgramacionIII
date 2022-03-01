@@ -1,6 +1,6 @@
 <?php
 include("conexion.php"); 
-// session_start(); 
+session_start(); 
 // if(!isset($_SESSION['id_usuario']))
 // {
 // 	header("Location: index.php"); 
@@ -13,9 +13,6 @@ $row = $resultado->fetch_assoc();
 
 
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">

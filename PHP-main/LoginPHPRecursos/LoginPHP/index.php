@@ -6,7 +6,8 @@ include("conexion.php");
 // 	header("Location: admin.php"); 
 // }
 //LOGIN
-if(!empty($_POST))
+//if(!empty($_POST))
+if(isset($_POST["ingresar"]))
 {
 	$usuario = mysqli_real_escape_string($conexion, $_POST['user']);
 	$password = mysqli_real_escape_string($conexion, $_POST['pass']);
@@ -158,7 +159,7 @@ if(isset($_POST["registrar"]))
 															<span class="lbl"> Recordarme</span>
 														</label>
 
-											<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
+											<button type="submit" name="ingresar" class="width-35 pull-right btn btn-sm btn-primary">
 												<i class="ace-icon fa fa-key"></i>
 												<span class="bigger-110">Ingresar</span>
 											</button>
