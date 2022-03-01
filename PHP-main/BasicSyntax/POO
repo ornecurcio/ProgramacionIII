@@ -16,6 +16,6 @@ public function mostrar()
 $a1 = new Automovil(); 
 $a1 -> marca = "Toyota"; 
 $a1 -> modelo = "Corolla"; 
-
+$a1 -> mostrar(); 
 
 ?>

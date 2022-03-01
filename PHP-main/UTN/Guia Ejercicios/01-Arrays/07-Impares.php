@@ -8,12 +8,22 @@
 $arrayEnteros = array();
 $lenArray = 10;
 for ($i=1; count($arrayEnteros) < $lenArray; $i++) { 
-    if($i % 2 == 1)
+    if($i % 2 != 0)
     {
         array_push($arrayEnteros,$i);
-        ?><br/>
-        <?php
-        echo($i);
+        //?><br/>
+        //<?php
+        //echo($i);
     }
+}
+foreach($arrayEnteros as $item)
+{
+    echo("$item <br>"); 
+}
+//ESTO NO ME ANDA
+while($j=0 < count($arrayEnteros))
+{
+    echo("$arrayEnteros[$j] <br>"); 
+    $j++; 
 }
 ?>

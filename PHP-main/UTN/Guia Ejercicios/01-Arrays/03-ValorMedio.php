@@ -9,8 +9,8 @@
 // Ejemplo 2: $a = 5; $b = 1; $c = 5; => se muestra un mensaje “No hay valor del medio”
 //======================================================================
 $a = 111;
-$b = 121;
-$c = 1;
+$b = 1;
+$c = 111;
 $array = array($a,$b,$c);
 sort($array);
 $repValues = false;

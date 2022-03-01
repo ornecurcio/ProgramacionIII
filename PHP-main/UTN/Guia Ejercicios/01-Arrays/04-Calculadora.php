@@ -7,26 +7,26 @@
 // resultado por pantalla.
 //======================================================================
 
-$operador = '';
-$resul;
+$operador = '+';
+$resultado;
 $op1 = 2;
 $op2 = 5;
 switch ($operador) {
     case '+':
-        $resul = $op1+$op2;
+        $resultado = $op1+$op2;
         break;
     case '-':
-        $resul = $op1-$op2;
+        $resultado = $op1-$op2;
         break;
     case '*':
-        $resul = $op1*$op2;
+        $resultado = $op1*$op2;
         break;
     case '/':
-        $resul = $op1/$op2;
+        $resultado = $op1/$op2;
         break;
     default:
-        $resul = "Operador invalido";
+        $resultado = "Operador invalido";
         break;
 }
-echo($resul);
+echo($resultado);
 ?>

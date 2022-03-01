@@ -5,12 +5,15 @@
 // Ejemplo: Se recibe la palabra “HOLA” y luego queda “ALOH”.
 //======================================================================
 $string = "HOLA";  
-    echo($string . " >>> ");   
-    echo(reverseString($string));
-    ?><br/> 
-    <?php 
-function reverseString(string $s)
-{
-    return strrev($s); 
-}
-?>
+     echo($string . " >>> ");   
+     echo(strrev($string));
+
+// $string = "HOLA";  
+//     echo($string . " >>> ");   
+//     echo(reverseString($string));
+     ?><br/> 
+     <?php 
+// function reverseString(string $s) //FUNCION PROPIA
+// {
+//     return strrev($s); 
+// }

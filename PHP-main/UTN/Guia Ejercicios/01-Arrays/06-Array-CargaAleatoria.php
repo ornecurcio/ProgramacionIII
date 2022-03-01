@@ -10,8 +10,8 @@
 $aRandm= array();
 // count($aRandm)
 for ($i=0; $i < 5; $i++) { 
-    array_push($aRandm,rand(1,100));
-    echo("Numero [" . $i . "] = " . $aRandm[$i]);
+    array_push($aRandm,rand(1,50));
+    echo("Numero [" . $i . "] = " . $aRandm[$i]."<br>");
 }
 $promedio = 0;
 foreach ($aRandm as $item) {
