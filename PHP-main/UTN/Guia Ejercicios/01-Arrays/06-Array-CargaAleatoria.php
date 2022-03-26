@@ -7,17 +7,15 @@
 // Mostrar un mensaje por pantalla informando el resultado.
 //======================================================================
 
-$aRandm= array();
-// count($aRandm)
-for ($i=0; $i < 5; $i++) { 
-    array_push($aRandm,rand(1,50));
-    echo("Numero [" . $i . "] = " . $aRandm[$i]."<br>");
-}
+$arrayRandom= array();
 $promedio = 0;
-foreach ($aRandm as $item) {
-    $promedio += $item;
+for ($i=0; $i < 5; $i++) { 
+    array_push($arrayRandom,rand(-50,100));
+    echo("Numero [" . $i . "] = " . $arrayRandom[$i]."<br>");
+    $promedio+=$arrayRandom[$i];  
 }
-$promedio /= count($aRandm);
+
+$promedio /= count($arrayRandom);
 if($promedio > 6)
 {
     echo("El promedio de los numeros es mayor a 6");

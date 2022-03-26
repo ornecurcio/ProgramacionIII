@@ -1,7 +1,7 @@
 <?php 
-//======================================================================
+//Curcio Ornela Ivana
 // Cargar los tres arrays con los siguientes valores y luego ‘juntarlos’ en uno.
-//  Luego mostrarlo por pantalla.
+// Luego mostrarlo por pantalla.
 // “Perro”, “Gato”, “Ratón”, “Araña”, “Mosca”
 // “1986”, “1996”, “2015”, “78”, “86”
 // “php”, “mysql”, “html5”, “typescript”, “ajax”

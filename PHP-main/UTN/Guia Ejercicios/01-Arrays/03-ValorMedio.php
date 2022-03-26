@@ -8,24 +8,24 @@
 // Ejemplo 1: $a = 6; $b = 9; $c = 8; => se muestra 8.
 // Ejemplo 2: $a = 5; $b = 1; $c = 5; => se muestra un mensaje “No hay valor del medio”
 //======================================================================
-$a = 111;
+$a = 5;
 $b = 1;
-$c = 111;
+$c = 5;
 $array = array($a,$b,$c);
 sort($array);
-$repValues = false;
+$valorRepetido = false;
 for ($i=0; $i < (count($array)); $i++) 
 {
     for ($j=$i+1; $j < (count($array)); $j++) { 
         if($array[$i] == $array[$j])
         {
             echo($array[$i] . "\n" . $array[$j]);
-            $repValues = true;
+            $valorRepetido = true;
             break;
         }
     }
 }
-if(min($array) != max($array) && !$repValues)
+if(min($array) != max($array) && !$valorRepetido)
 {
     echo("valor medio es: \n");
     echo($array[floor((count($array)/2))]);

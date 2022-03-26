@@ -1,5 +1,5 @@
 <?php 
-//======================================================================
+// Curcio Ornela Ivana 
 // Generar una aplicación que permita cargar los primeros 10 números impares en un Array.
 // Luego imprimir (utilizando la estructura for) cada uno en una línea distinta 
 // (recordar que el salto de línea en HTML es la etiqueta <br/>).
@@ -11,16 +11,15 @@ for ($i=1; count($arrayEnteros) < $lenArray; $i++) {
     if($i % 2 != 0)
     {
         array_push($arrayEnteros,$i);
-        //?><br/>
-        //<?php
-        //echo($i);
+        echo($i . "<br>");
     }
 }
+echo("------------ <br>"); 
 foreach($arrayEnteros as $item)
 {
     echo("$item <br>"); 
 }
-//ESTO NO ME ANDA
+echo("------------ <br>"); 
 while($j=0 < count($arrayEnteros))
 {
     echo("$arrayEnteros[$j] <br>"); 
