@@ -1,6 +1,6 @@
 <?php
 include "Auto.php";
-//======================================================================
+//Ornela Ivana Curcio 
 // Realizar una clase llamada ​“Auto”​ que posea los siguientes atributos ​privados​:
 // _color (String)
 // _precio (Double)
@@ -34,41 +34,52 @@ include "Auto.php";
 // 5)
 //======================================================================
     // Crear ​dos​ objetos ​“Auto”​ de la misma marca y distinto color. #
-    $a1 = new Auto("Toyota","Verde");
-    $a2 = new Auto("Toyota","Azul");
+    $a1 = new Auto("Renault","Verde");
+    $a2 = new Auto("Renault","Rosa");
+    echo("Auto1: ".Auto::MostrarAuto($a1)); 
+    echo("Auto2: ".Auto::MostrarAuto($a2)); 
     // Crear ​dos​ objetos ​“Auto”​ de la misma marca, mismo color y distinto precio
-    $a3 = new Auto("Ford","Rojo",450);
-    $a4 = new Auto("Ford","Rojo",450);
+    $a3 = new Auto("Fiat","Negro",1000);
+    $a4 = new Auto("Fiat","Negro",1450);
+    echo("Auto3: ".Auto::MostrarAuto($a3)); 
+    echo("Auto4: ".Auto::MostrarAuto($a4)); 
     // Crear ​un​ objeto ​“Auto”​ utilizando la sobrecarga restante. #
-    $a5 = new Auto("Fiat","Verde",125,date_create("2021-03-19"));
+    $a5 = new Auto("Toyota","Gris",1250,"2021-03-28");
+    echo("Auto5: ".Auto::MostrarAuto($a5)); 
 
+    //Utilizar el método ​“AgregarImpuesto”​ en los últimos tres objetos, agregando $ 1500 al atributo precio.
     $a3->AgregarImpuestos(1500);
     $a4->AgregarImpuestos(1500);
     $a5->AgregarImpuestos(1500);
     
-
-    $arrayAutos = array();
-    array_push($arrayAutos,$a1,$a2,$a3,$a4,$a5);    
-
+    //Obtener el importe sumado del primer objeto ​“Auto”​ más el segundo y mostrar el resultado obtenido.
     $impSumado = Auto::Add($a1,$a2);
-    echo("<br/>El importe del auto 1+auto 2 es: " . $impSumado);
-    if($a1->Equals($a2)){
+    echo("<br/>El importe del auto 1 + auto 2 es: " . $impSumado."<br>");
+    
+    //Comparar el primer ​“Auto”​ con el segundo y quinto objeto e informar si son iguales o no.
+    if($a1->Equals($a2))
+    {
         echo("<br/>Auto 1 = Auto 2");
     }
-    else{
+    else
+    {
         echo("<br/>Auto 1 != Auto 2");
     }
     if($a1->Equals($a5)) {
         echo("<br/>Auto 1 = Auto 5");
     }
-    else{
-        echo("<br/>Auto 1 != Auto 5");
+    else
+    {
+        echo("<br/>Auto 1 != Auto 5 <br/>");
     }
-    // foreach ($arrayAutos as $item) {
-    //     
-    // }
-    for ($i=0; $i < count($arrayAutos); $i++) { 
-        if($i % 2 == 1){
+
+    //Utilizar el método de clase “​MostrarAuto​” para mostrar cada los objetos impares (1, 3, 5)
+    $arrayAutos = array();
+    array_push($arrayAutos,$a1,$a2,$a3,$a4,$a5); 
+    for ($i=0; $i < count($arrayAutos); $i++) 
+    { 
+        if($i % 2 == 0)
+        {
             echo(Auto::MostrarAuto($arrayAutos[$i]));
         }
     }

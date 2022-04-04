@@ -24,43 +24,53 @@ include_once "Auto.php";
 // Probar el buen funcionamiento de todos los métodos.
 //======================================================================
 
-$garage = new Garage("Pikachu garage",170);
-$a1 = new Auto("Mitsubishi", "Azul", 500000, new DateTime("now"));
-$a2 = new Auto("Ford", "Negro", 1000000);
-$a3 = new Auto("Fiat", "Azul");
+$garage = new Garage("SRL garage",300);
+$a1 = new Auto("Renault", "Azul", 500000, "2021-03-28");
+echo("Auto1: ".Auto::MostrarAuto($a1)); 
+$a2 = new Auto("Citroen", "Negro", 1000000);
+echo("Auto2: ".Auto::MostrarAuto($a2)); 
+$a3 = new Auto("Ford", "Azul");
+echo("Auto3: ".Auto::MostrarAuto($a3)); 
 
 $garage->Add($a1);
 $garage->Add($a1); //Repetido
 $garage->Add($a2);
 $garage->Add($a3);
 
+echo("<br/>------Muestro el GARAGE------<br/>");
+
 echo $garage->MostrarGarage();
-echo("<br/>linea 38<br/>");
-if($garage->Remove($a2)){       //El auto  está en el garage.
+
+echo("<br/>------Saco un AUTO------<br/>");
+if($garage->Remove($a2))//El auto  está en el garage.
+{       
     echo("Elemento removido");
 }
-else{
+else
+{
     echo("No existe el elemento a eliminar");
 } 
-echo $garage->MostrarGarage(); //error
 
-if($garage->Remove($a2)){       //El auto no está en el garage.
-    echo("Elemento duplicado fue removido");
+echo("<br/>------Muestro el GARAGE------<br/>");
+echo $garage->MostrarGarage(); 
+
+echo("<br/>------Intenso sacar un auto que no esta------<br/>");
+if($garage->Remove($a2))
+{       //El auto no está en el garage.
+    echo("Elemento fue removido");
 } 
-else{
+else
+{
     echo("No existe el elemento a eliminar");
 }
-// //var_dump($garage);
-
+echo("<br/>------Muestro el GARAGE------<br/>");
 echo $garage->MostrarGarage();
- echo("<br/>linea 44<br/>");
- $garage->Add($a2);
- echo("<br/>linea 46<br/>");
- echo $garage->MostrarGarage();
-// //TODO OK
+echo("<br/>------Agrego de nuevo un AUTO------<br/>");
+$garage->Add($a2);
+echo $garage->MostrarGarage();
+echo "================================TODO OK==============================="; 
 
+?>
 // echo "<p style = 'color:red;' >hola en rojo</p>";
 // echo "<p style = 'color:violet;' >hola en violeta</p>";
 // echo "<p style = 'color:white; background-color: black;'>hola en blanco con fondo negro</p>";
-
-?>
