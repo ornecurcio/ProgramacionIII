@@ -10,7 +10,7 @@
 //======================================================================
 function ValidString($s,$max)
 {
-    if(is_string($s)&& is_numeric($max))
+    if(is_string($s) && is_numeric($max))
     {
         if(str_word_count($s) < $max && 
         ($s == "Recuperatorio" || $s == "Parcial" || $s == "Programacion" ))
@@ -21,6 +21,19 @@ function ValidString($s,$max)
         return 0;
 }
 $string = "Mariano";  
+    echo($string . " >>> "); 
+$ret = validString($string,13);
+
+if(validString($string,13)==0)
+{
+    echo("no esta en el listado");
+}
+else
+{
+    echo("si esta en el listado");
+}
+echo("</br>");
+$string = "Parcial";  
     echo($string . " >>> "); 
 $ret = validString($string,13);
 

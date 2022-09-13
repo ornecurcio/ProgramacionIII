@@ -105,6 +105,7 @@ include "Auto.php";
                 die("Error al abrir archivo"); 
             }
         }
+        
 
         public static function LeerGarage()
         {

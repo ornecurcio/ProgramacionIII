@@ -1,0 +1,23 @@
+[
+    {
+        "_id": 5320,
+        "_nombre": "carpincho",
+        "_clave": "pampeano123",
+        "_email": "carpi@lapampa.com",
+        "_fechaRegistro": "12-09-2022 23:09:11"
+    },
+    {
+        "_id": 4050,
+        "_nombre": "carpincho",
+        "_clave": "pampeano123",
+        "_email": "carpi@lapampa.com",
+        "_fechaRegistro": "13-09-2022 00:09:48"
+    },
+    {
+        "_id": 9878,
+        "_nombre": "carpincho",
+        "_clave": "pampeano123",
+        "_email": "carpi@lapampa.com",
+        "_fechaRegistro": "13-09-2022 00:09:27"
+    }
+]

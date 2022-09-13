@@ -1,5 +1,6 @@
 <?php
 //======================================================================
+//Ornela Ivana Curcio
 // Escribir un programa que use la variable $operador 
 //que pueda almacenar los símbolos matemáticos: ‘+’, ‘-’, ‘/’ y ‘*’; 
 //y definir dos variables enteras $op1 y $op2.

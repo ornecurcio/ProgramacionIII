@@ -38,20 +38,25 @@ include "Auto.php";
     $a2 = new Auto("Renault","Rosa");
     echo("Auto1: ".Auto::MostrarAuto($a1)); 
     echo("Auto2: ".Auto::MostrarAuto($a2)); 
+
     // Crear ​dos​ objetos ​“Auto”​ de la misma marca, mismo color y distinto precio
     $a3 = new Auto("Fiat","Negro",1000);
     $a4 = new Auto("Fiat","Negro",1450);
     echo("Auto3: ".Auto::MostrarAuto($a3)); 
     echo("Auto4: ".Auto::MostrarAuto($a4)); 
+
     // Crear ​un​ objeto ​“Auto”​ utilizando la sobrecarga restante. #
     $a5 = new Auto("Toyota","Gris",1250,"2021-03-28");
     echo("Auto5: ".Auto::MostrarAuto($a5)); 
 
     //Utilizar el método ​“AgregarImpuesto”​ en los últimos tres objetos, agregando $ 1500 al atributo precio.
     $a3->AgregarImpuestos(1500);
+    echo("Auto3 con impuesto: ".Auto::MostrarAuto($a3));
     $a4->AgregarImpuestos(1500);
+    echo("Auto4 con impuesto: ".Auto::MostrarAuto($a4));
     $a5->AgregarImpuestos(1500);
-    
+    echo("Auto5 con impuesto: ".Auto::MostrarAuto($a5));
+
     //Obtener el importe sumado del primer objeto ​“Auto”​ más el segundo y mostrar el resultado obtenido.
     $impSumado = Auto::Add($a1,$a2);
     echo("<br/>El importe del auto 1 + auto 2 es: " . $impSumado."<br>");

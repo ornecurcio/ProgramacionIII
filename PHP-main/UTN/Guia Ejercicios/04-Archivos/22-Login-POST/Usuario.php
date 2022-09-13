@@ -1,9 +1,9 @@
 <?php
-    enum ELogin: int{
-        case Verificado = 1;
-        case ErrorDatos = 2;
-        case Inexistente = 3;
-        };
+    // enum ELogin: int{
+    //     case Verificado = 1;
+    //     case ErrorDatos = 2;
+    //     case Inexistente = 3;
+    //     };
 Class Usuario{
     private string $_nombre;
     private string $_mail;
