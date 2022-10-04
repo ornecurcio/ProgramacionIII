@@ -1,0 +1,42 @@
+[
+    {
+        "_id": 1,
+        "_nombre": "Cangreburger",
+        "_tipo": "simple",
+        "_precio": "1300",
+        "_cantidad": 115,
+        "_file": ".\\ImagenesDeHamburguesas\\\\Cangreburger_simple.jpg"
+    },
+    {
+        "_id": 2,
+        "_nombre": "Color Cangreburger",
+        "_tipo": "doble",
+        "_precio": "1580",
+        "_cantidad": 125,
+        "_file": ".\\ImagenesDeHamburguesas\\\\Color Cangreburger_doble.jpg"
+    },
+    {
+        "_id": 3,
+        "_nombre": "Jellyburger",
+        "_tipo": "simple",
+        "_precio": "2950",
+        "_cantidad": 45,
+        "_file": ".\\ImagenesDeHamburguesas\\\\Jellyburger_simple.jpg"
+    },
+    {
+        "_id": 4,
+        "_nombre": "Burger Asquerosa",
+        "_tipo": "doble",
+        "_precio": "1000",
+        "_cantidad": 20,
+        "_file": ".\\ImagenesDeHamburguesas\\\\Burger Asquerosa_doble.jpg"
+    },
+    {
+        "_id": 5,
+        "_nombre": "Salchi Burger",
+        "_tipo": "simple",
+        "_precio": "1500",
+        "_cantidad": 20,
+        "_file": ".\\ImagenesDeHamburguesas\\\\Salchi Burger_simple.jpg"
+    }
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "_id": 1,
+        "_email": "plancton@alga.com"
+    },
+    {
+        "_id": 2,
+        "_email": "carpi@laPampa.com"
+    },
+    {
+        "_id": 3,
+        "_email": "orne@laPampa.com"
+    },
+    {
+        "_id": 4,
+        "_email": "calamardito@artista.com"
+    },
+    {
+        "_id": 5,
+        "_email": "bob@cuadrado.com"
+    },
+    {
+        "_id": 6,
+        "_email": "calamardo@artista.com"
+    },
+    {
+        "_id": 7,
+        "_email": "carpincho@pampeano"
+    }
+]

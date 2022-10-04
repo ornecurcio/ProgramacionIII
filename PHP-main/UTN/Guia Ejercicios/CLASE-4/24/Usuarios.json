@@ -1,0 +1,68 @@
+[
+    {
+        "_id": 5491,
+        "_nombre": "Vegeta",
+        "_apellido": "Saiyajin",
+        "_clave": "Vegeta_Pass",
+        "_email": "Vegeta@mail.com",
+        "_registroFecha": "26-09-2021 01:09:17",
+        "_nombreImagen": "Vegeta_SSJ4_2021_09_26__01_38_17.jpg"
+    },
+    {
+        "_id": 4720,
+        "_nombre": "Goku",
+        "_apellido": "Saiyajin",
+        "_clave": "Goku_Pass",
+        "_email": "Goku@mail.com",
+        "_registroFecha": "26-09-2021 01:09:52",
+        "_nombreImagen": "Goku_SSJG_2021_09_26__01_38_52.jpg"
+    },
+    {
+        "_id": 3638,
+        "_nombre": "Gogeta",
+        "_apellido": "Saiyajin",
+        "_clave": "Gogeta_Pass",
+        "_email": "Gogeta@mail.com",
+        "_registroFecha": "26-09-2021 01:09:18",
+        "_nombreImagen": "Gogeta_SSJ4_2021_09_26__01_42_18.jpg"
+    },
+    {
+        "_id": 464,
+        "_nombre": "Vegito",
+        "_apellido": "Saiyajin",
+        "_clave": "Vegeto_Pass",
+        "_email": "Vegeto@mail.com",
+        "_registroFecha": "26-09-2021 01:09:47",
+        "_nombreImagen": "Vegito_SSJGSSJ_2021_09_26__01_42_47.jpg"
+    },
+    {
+        "_id": 232,
+        "_nombre": "Broly",
+        "_apellido": "Saiyajin",
+        "_clave": "Broly_Pass",
+        "_email": "Broly@mail.com",
+        "_registroFecha": "26-09-2021 01:09:54",
+        "_nombreImagen": "Broly_LSSJ_2021_09_26__01_43_54.jpg"
+    },
+    {
+        "_id": 5320,
+        "_nombre": "carpincho",
+        "_clave": "pampeano123",
+        "_email": "carpi@lapampa.com",
+        "_fechaRegistro": "12-09-2022 23:09:11"
+    },
+    {
+        "_id": 4050,
+        "_nombre": "carpincho",
+        "_clave": "pampeano123",
+        "_email": "carpi@lapampa.com",
+        "_fechaRegistro": "13-09-2022 00:09:48"
+    },
+    {
+        "_id": 9878,
+        "_nombre": "carpincho",
+        "_clave": "pampeano123",
+        "_email": "carpi@lapampa.com",
+        "_fechaRegistro": "13-09-2022 00:09:27"
+    }
+]

@@ -1,0 +1,16 @@
+[
+    {
+        "_id": 1,
+        "_sabor": "calabresa",
+        "_tipo": "molde",
+        "_precio": "199.99",
+        "_cantidad": 5
+    },
+    {
+        "_id": 2,
+        "_sabor": "napolitana",
+        "_tipo": "piedra",
+        "_precio": "299.99",
+        "_cantidad": 0
+    }
+]
