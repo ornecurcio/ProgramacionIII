@@ -1,0 +1,68 @@
+[
+    {
+        "_id": null,
+        "_usuario": {
+            "_id": null,
+            "_email": "carpincho@pampeano.com"
+        },
+        "_producto": {
+            "_id": null,
+            "_sabor": "dulce de leche",
+            "_tipo": "crema",
+            "_precio": null,
+            "_stock": null,
+            "_file": null
+        },
+        "_cantidad": "5",
+        "_fecha": {
+            "date": "2022-10-16 10:00:21.140837",
+            "timezone_type": 3,
+            "timezone": "Europe\/Berlin"
+        },
+        "_file": ".\\ImagenesDeLaVenta\\\\crema_dulce de leche__20221016100021.jpg"
+    },
+    {
+        "_id": null,
+        "_usuario": {
+            "_id": 3,
+            "_email": "orne@pampeana.com"
+        },
+        "_producto": {
+            "_id": null,
+            "_sabor": "dulce de leche",
+            "_tipo": "crema",
+            "_precio": null,
+            "_stock": null,
+            "_file": null
+        },
+        "_cantidad": "5",
+        "_fecha": {
+            "date": "2022-10-16 10:00:32.861740",
+            "timezone_type": 3,
+            "timezone": "Europe\/Berlin"
+        },
+        "_file": ".\\ImagenesDeLaVenta\\\\crema_dulce de leche__20221016100032.jpg"
+    },
+    {
+        "_id": null,
+        "_usuario": {
+            "_id": 4,
+            "_email": "minupuma@pampeana.com"
+        },
+        "_producto": {
+            "_id": null,
+            "_sabor": "limon",
+            "_tipo": "agua",
+            "_precio": null,
+            "_stock": null,
+            "_file": null
+        },
+        "_cantidad": "5",
+        "_fecha": {
+            "date": "2022-10-16 10:00:54.849947",
+            "timezone_type": 3,
+            "timezone": "Europe\/Berlin"
+        },
+        "_file": ".\\ImagenesDeLaVenta\\\\agua_limon__20221016100054.jpg"
+    }
+]

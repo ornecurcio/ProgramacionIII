@@ -1,0 +1,18 @@
+[
+    {
+        "_id": 1,
+        "_sabor": "dulce de leche",
+        "_tipo": "crema",
+        "_precio": "2500",
+        "_stock": "200",
+        "_file": ".\\ImagenesDeHelado\\dulce de leche_crema.jpg"
+    },
+    {
+        "_id": 2,
+        "_sabor": "limon",
+        "_tipo": "agua",
+        "_precio": "1200",
+        "_stock": "300",
+        "_file": ".\\ImagenesDeHelado\\limon_agua.jpg"
+    }
+]

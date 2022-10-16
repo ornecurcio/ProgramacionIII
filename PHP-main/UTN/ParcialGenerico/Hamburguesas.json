@@ -38,5 +38,29 @@
         "_precio": "1500",
         "_cantidad": 20,
         "_file": ".\\ImagenesDeHamburguesas\\\\Salchi Burger_simple.jpg"
+    },
+    {
+        "_id": 6,
+        "_nombre": "Nuevo test",
+        "_tipo": "simple",
+        "_precio": "1500",
+        "_cantidad": 240,
+        "_file": ".\\ImagenesDeHamburguesas\\\\Nuevo test_simple.jpg"
+    },
+    {
+        "_id": 7,
+        "_nombre": "Nuevo testt",
+        "_tipo": "simple",
+        "_precio": "1500",
+        "_cantidad": "120",
+        "_file": ".\\ImagenesDeHamburguesas\\\\Nuevo testt_simple.jpg"
+    },
+    {
+        "_id": 8,
+        "_nombre": "Nuevo testtt",
+        "_tipo": "simple",
+        "_precio": "1500",
+        "_cantidad": "120",
+        "_file": ".\\ImagenesDeHamburguesas\\\\Nuevo testtt_simple.jpg"
     }
 ]

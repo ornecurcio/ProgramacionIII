@@ -1,11 +1,12 @@
 <?php
 
-session_start();
+$metodo = $_SERVER['REQUEST_METHOD'];
 
-switch ($_SERVER["REQUEST_METHOD"]){
+switch ($metodo)
+{
     case "POST":
         
-        switch ($_POST["accion"])
+        switch (key($_GET))
         {
             case "alta":
                 include_once "HeladeriaAlta.php";
@@ -17,18 +18,18 @@ switch ($_SERVER["REQUEST_METHOD"]){
                 include_once "AltaVenta.php";
                 break;
             case "devolucion":
-                include_once "DevolverHelado.php";
+                //include_once "DevolverHelado.php";
                 break;
         }
         break;
     case "GET":
-        include_once "ConsultasVentas.php";
+        include "ConsultasVentas.php";
         break;
     case "PUT":
-        include_once "ModificarVenta.php";
+        //include_once "ModificarVenta.php";
         break;
     case "DELETE":
-        include_once "BorrarVenta.php";
+        //include_once "BorrarVenta.php";
         break;
 }
 ?>

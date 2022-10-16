@@ -4,31 +4,31 @@ include_once "Toolkit.php";
 include_once "GuardarLeerJson.php";
 
 
-class Hamburguesa
+class Producto
 {
     public $_id;
-    public $_nombre;
+    public $_sabor;
     public $_tipo;
     public $_precio;
-    public $_cantidad;
+    public $_stock;
     public $_file;
     private $_nombreCarpeta;
     
-    public function __construct($nombre, $tipo, $precio, $cantidad, $file)
+    public function __construct($sabor, $tipo, $precio, $stock, $file)
     {
-        $this->setNombre($nombre);
+        $this->setSabor($sabor);
         $this->setTipo($tipo);
         $this->setPrecio($precio);
-        $this->setCantidad($cantidad);
+        $this->setStock($stock);
         $this->setFile($file);
-        $this->_nombreCarpeta = 'ImagenesDeHamburguesas';   // OJO
+        $this->_nombreCarpeta = 'ImagenesDeHelado';   // OJO
     }
     
-    public function setNombre($nombre)
+    public function setSabor($sabor)
     {
-        if (!empty($nombre)) 
+        if (!empty($sabor)) 
         {
-            $this->_nombre = $nombre;
+            $this->_sabor = $sabor;
         }
     }
 
@@ -40,11 +40,11 @@ class Hamburguesa
         }
     }
 
-    public function setCantidad($cantidad)
+    public function setStock($stock)
     {
-        if (!empty($cantidad) && is_numeric($cantidad)) 
+        if (!empty($stock) && is_numeric($stock)) 
         {
-            $this->_cantidad = $cantidad;
+            $this->_stock = $stock;
         }
     }
 
@@ -67,8 +67,8 @@ class Hamburguesa
     {
         $retorno = false;
 
-        $nombreItemUno = Toolkit::SacarValorDeClave($itemUno, "_nombre");
-        $nombreItemDos = Toolkit::SacarValorDeClave($itemDos, "_nombre");
+        $nombreItemUno = Toolkit::SacarValorDeClave($itemUno, "_sabor"); //OJO
+        $nombreItemDos = Toolkit::SacarValorDeClave($itemDos, "_sabor"); //OJO
         $tipoItemUno = Toolkit::SacarValorDeClave($itemUno, "_tipo");
         $tipoItemDos = Toolkit::SacarValorDeClave($itemDos, "_tipo");
 
@@ -88,8 +88,8 @@ class Hamburguesa
 
         if($indice > -1)
         {  
-            $nuevoStock = Toolkit::SacarValorDeClave($array[$indice], "_cantidad") +$item->_cantidad;
-            $replace = array("_precio" => $item->_precio, "_cantidad" => $nuevoStock);
+            $nuevoStock = Toolkit::SacarValorDeClave($array[$indice], "_stock") +$item->_stock;
+            $replace = array("_precio" => $item->_precio, "_stock" => $nuevoStock);
             $array[$indice] = array_replace($array[$indice], $replace);
         }
         else
@@ -109,8 +109,8 @@ class Hamburguesa
             $idEnArray = Toolkit::SacarValorDeClave($array[$i], "_id");
             if($idEnArray == $idProducto)
             {
-                $nuevoStock = Toolkit::SacarValorDeClave($array[$i], "_cantidad") - $valor;
-                $replace = array("_cantidad" => $nuevoStock);
+                $nuevoStock = Toolkit::SacarValorDeClave($array[$i], "_stock") - $valor;
+                $replace = array("_stock" => $nuevoStock);
                 $array[$i] = array_replace($array[$i], $replace);
                 break;
             }
@@ -120,8 +120,8 @@ class Hamburguesa
 
     public function GuardarImagen()
     {     
-        $nombreFoto = $this->_nombre."_".$this->_tipo.".jpg";
-        $destino = ".".DIRECTORY_SEPARATOR.$this->_nombreCarpeta.DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR;
+        $nombreFoto = $this->_sabor."_".$this->_tipo.".jpg";
+        $destino = ".".DIRECTORY_SEPARATOR.$this->_nombreCarpeta.DIRECTORY_SEPARATOR;
 
         if(!file_exists($destino))
         {
@@ -151,7 +151,7 @@ class Hamburguesa
     {
         $retorno = false;
 
-        $cantidadExistente = Toolkit::SacarValorDeClave($producto, "_cantidad");
+        $cantidadExistente = Toolkit::SacarValorDeClave($producto, "_stock");
 
         if($cantidadExistente >= $cantidadPedida)
         {

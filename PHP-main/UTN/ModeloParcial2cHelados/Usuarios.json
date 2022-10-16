@@ -1,0 +1,18 @@
+[
+    {
+        "_id": 1,
+        "_email": "orne@curcio.com"
+    },
+    {
+        "_id": 2,
+        "_email": "carpincho@pampeano.com"
+    },
+    {
+        "_id": 3,
+        "_email": "orne@pampeana.com"
+    },
+    {
+        "_id": 4,
+        "_email": "minupuma@pampeana.com"
+    }
+]
