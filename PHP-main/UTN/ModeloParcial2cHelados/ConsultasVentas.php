@@ -81,37 +81,52 @@ foreach ($arrayVentas as $venta)
 }
 
 
-// // c- el listado de ventas de un usuario ingresado
-// if(isset($_GET["usuario"]))
-// {
-//     $usuario = $_GET["usuario"];
-//     echo "C-Listado de ventas de ".$usuario."<br>"; 
-//     foreach($arrayVentas as $venta)
-//     {
-//         $usuarioAux = Toolkit::SacarValorDeClave($venta, "_usuario"); 
-//         if($usuarioAux == $usuario)
-//         {
-//             $venta->MostrarDatos(); 
-//         }
-//     }
+// c- el listado de ventas de un usuario ingresado
+if(isset($_GET["usuario"]))
+{
+    $usuario = $_GET["usuario"];
+    echo "C-Listado de ventas de ".$usuario."<br>"; 
+    foreach($arrayVentas as $venta)
+    {
+        $usuarioAux = Toolkit::SacarValorDeClave($venta, "_usuario");
+        $email = Toolkit::SacarValorDeClave($usuarioAux, "_email"); 
+        if($email == $usuario)
+        {
+            $usuario = Toolkit::SacarValorDeClave($venta, "_usuario"); 
+            $producto = Toolkit::SacarValorDeClave($venta, "_producto");
+            $email = Toolkit::SacarValorDeClave($usuario, "_email"); 
+            $sabor = Toolkit::SacarValorDeClave($producto, "_sabor");
+            $tipo = Toolkit::SacarValorDeClave($producto, "_tipo");
+            $cantidad = Toolkit::SacarValorDeClave($venta, "_cantidad"); 
+            $id = Toolkit::SacarValorDeClave($venta, "_id");
+            echo $id.", ".$email.", ".$sabor.", ".$tipo.", ".$cantidad.", ".$fechaSimple."<br>";
+        }
+    }
     
-// }
+}
 
-// // d- - El listado de ventas por sabor ingresado.
-// if(isset($_GET["sabor"]))
-// {
-//     $tipo = $_GET["sabor"];
-//     echo "D-El listado de ventas de ".$sabor."<br>"; 
-//     foreach($arrayVentas as $venta)
-//     {
-//         $productoAux = Toolkit::SacarValorDeClave($venta, "_producto"); 
-//         $saborAux = Toolkit::SacarValorDeClave($productoAux, "_sabor"); 
-//         if($saborAux == $sabor)
-//         {
-//             $venta->MostrarDatos(); 
-//         }
-//     }
+// d- - El listado de ventas por sabor ingresado.
+if(isset($_GET["sabor"]))
+{
+    $tipo = $_GET["sabor"];
+    echo "D-El listado de ventas de ".$sabor."<br>"; 
+    foreach($arrayVentas as $venta)
+    {
+        $productoAux = Toolkit::SacarValorDeClave($venta, "_producto"); 
+        $saborAux = Toolkit::SacarValorDeClave($productoAux, "_sabor"); 
+        if($saborAux == $sabor)
+        {
+            $usuario = Toolkit::SacarValorDeClave($venta, "_usuario"); 
+            $producto = Toolkit::SacarValorDeClave($venta, "_producto");
+            $email = Toolkit::SacarValorDeClave($usuario, "_email"); 
+            $sabor = Toolkit::SacarValorDeClave($producto, "_sabor");
+            $tipo = Toolkit::SacarValorDeClave($producto, "_tipo");
+            $cantidad = Toolkit::SacarValorDeClave($venta, "_cantidad"); 
+            $id = Toolkit::SacarValorDeClave($venta, "_id");
+            echo $id.", ".$email.", ".$sabor.", ".$tipo.", ".$cantidad.", ".$fechaSimple."<br>";
+        }
+    }
    
-// }
+}
 
 ?>
