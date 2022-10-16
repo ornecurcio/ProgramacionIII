@@ -15,13 +15,15 @@ $archivo = $_FILES["archivo"];
 
 $rutaProductos = "Pizza.json"; 
 $rutaUsuarios = "Usuarios.json"; 
+$rutaVentas = "Ventas.json"; 
 
 $arrayProductos = GuardarLeerJson::LeerJson($rutaProductos);
 $arrayUsuarios = GuardarLeerJson::LeerJson($rutaUsuarios);
+$arrayVentas = GuardarLeerJson::LeerJson($rutaVentas);
 
 $productoAux = new Producto($sabor, $tipo, null, null, null);
 $usuarioAux = new Usuario($email);
-$ventaAux = new Venta($cantidad, $archivo);
+$ventaAux = new Venta($productoAux,$usuarioAux,$cantidad, $archivo);
 
 $indiceProductoAux = Herramientas::ConsultaSiHayYCual($productoAux, $arrayProductos);
 
@@ -36,7 +38,8 @@ if(isset($sabor) && isset($tipo) && isset($cantidad) && isset($email) && isset (
         if($stockProductoAuxEnArray >= $cantidadPedido)
         {
             $usuarioAux = $usuarioAux->Alta($arrayUsuarios, $rutaUsuarios);
-            if($ventaAux->Alta($usuarioAux, $productoAuxEnArray, $arrayProductos, $rutaProductos))
+            if($ventaAux->Alta($usuarioAux, $productoAuxEnArray, $arrayProductos, $arrayVentas, 
+                               $rutaProductos, $rutaVentas))
             {
                 printf("Venta realizada con éxito.<br>");
             }

@@ -1,0 +1,44 @@
+[
+    {
+        "_id": null,
+        "_usuario": {
+            "_id": null,
+            "_sabor": "napolitana",
+            "_tipo": "piedra",
+            "_precio": null,
+            "_cantidad": null
+        },
+        "_producto": {
+            "_id": null,
+            "_email": "carpincho@pampeano"
+        },
+        "_cantidad": "5",
+        "_fecha": {
+            "date": "2022-10-04 03:25:37.871845",
+            "timezone_type": 3,
+            "timezone": "Europe\/Berlin"
+        },
+        "_file": ".\\ImagenesDeLaVenta\\\\piedra_napolitana__20221004032537.jpg"
+    },
+    {
+        "_id": null,
+        "_usuario": {
+            "_id": null,
+            "_sabor": "napolitana",
+            "_tipo": "piedra",
+            "_precio": null,
+            "_cantidad": null
+        },
+        "_producto": {
+            "_id": null,
+            "_email": "carpincho@pampeano"
+        },
+        "_cantidad": "5",
+        "_fecha": {
+            "date": "2022-10-04 03:26:09.219530",
+            "timezone_type": 3,
+            "timezone": "Europe\/Berlin"
+        },
+        "_file": ".\\ImagenesDeLaVenta\\\\piedra_napolitana__20221004032609.jpg"
+    }
+]

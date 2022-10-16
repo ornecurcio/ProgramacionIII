@@ -10,7 +10,14 @@
         "_id": 2,
         "_sabor": "napolitana",
         "_tipo": "piedra",
-        "_precio": "299.99",
-        "_cantidad": 0
+        "_precio": "1299.99",
+        "_cantidad": 280
+    },
+    {
+        "_id": 3,
+        "_sabor": "jamon",
+        "_tipo": "molde",
+        "_precio": "4299.99",
+        "_cantidad": "40"
     }
 ]

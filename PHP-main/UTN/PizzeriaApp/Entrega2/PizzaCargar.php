@@ -16,7 +16,7 @@ if(isset($sabor) && isset($tipo) && isset($cantidad) && isset($precio))
 {
     $productoAux = new Producto($sabor, $tipo, $precio, $cantidad);
     Producto::AltaModificacion($productoAux, $array, $ruta);
-    printf("Producto grabado con éxito. Sé felizzz <br>");   
+    printf("Producto grabado con éxito.<br>");   
 }
 else
 {
