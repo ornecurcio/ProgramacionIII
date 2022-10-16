@@ -14,5 +14,13 @@
         "_precio": "1200",
         "_stock": "300",
         "_file": ".\\ImagenesDeHelado\\limon_agua.jpg"
+    },
+    {
+        "_id": 3,
+        "_sabor": "chocolate",
+        "_tipo": "crema",
+        "_precio": "2000",
+        "_stock": "300",
+        "_file": ".\\ImagenesDeHelado\\chocolate_crema.jpg"
     }
 ]

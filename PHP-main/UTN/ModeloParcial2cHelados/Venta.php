@@ -147,10 +147,7 @@ class Venta
     //     rename($antiguoDir.$nombreImagen, $nuevoDir.$nombreImagen);
     // } 
 
-    public function MostrarDatos()
-    {
-        echo "$this->_id,$this->_usuario,$this->_producto, $this->_cantidad,$this->_fecha"."<br>";
-    }
+    
 
 }
 

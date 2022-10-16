@@ -49,24 +49,36 @@ foreach ($arrayVentas as $venta)
 echo "<br> A-La cantidad de ventas el dia ".$fechaVenta." es ".$cantidadHelados."<br>"; 
 
 
-// // b- el listado de ventas entre dos fechas ordenado por nombre.
+// b- el listado de ventas entre dos fechas ordenado por nombre.
 
-// if(isset($_GET["fechaMinima"]) && isset($_GET["fechaMaxima"]))
-// {
-//     $fechaMinima = $_GET["fechaMinima"];
-//     $fechaMaxima = $_GET["fechaMaxima"];
-// }
-// echo "B- El listado de ventas entre ".$fechaMinima." y ".$fechaMaxima."<br>"; 
-// $arrayVentaEntreFechas = array(); 
-// foreach ($arrayVentas as $venta)
-// {
-//     $fechaAux = Toolkit::SacarValorDeClave($venta, "_fecha"); 
+if(isset($_GET["fechaMinima"]) && isset($_GET["fechaMaxima"]))
+{
+    $fechaMinima = $_GET["fechaMinima"];
+    $fechaMaxima = $_GET["fechaMaxima"];
+}
+echo "B- El listado de ventas entre ".$fechaMinima." y ".$fechaMaxima."<br>"; 
+$arrayVentaEntreFechas = array(); 
+foreach ($arrayVentas as $venta)
+{
+    $fechaAux = Toolkit::SacarValorDeClave($venta, "_fecha"); 
+    $date = Toolkit::SacarValorDeClave($fechaAux, "date"); 
+    $fechaFormato = new DateTime($date);
+    $fechaSimple =$fechaFormato->format('Y-m-d'); 
 
-//     if($fechaMinima < $fechaAux && $fechaAux < $fechaMaxima)
-//     {
-//         $venta->MostrarDatos(); 
-//     } 
-// }
+    //var_dump($venta); 
+    if($fechaSimple < $fechaAux && $fechaSimple < $fechaMaxima)
+    {
+        $usuario = Toolkit::SacarValorDeClave($venta, "_usuario"); 
+        $producto = Toolkit::SacarValorDeClave($venta, "_producto");
+        $email = Toolkit::SacarValorDeClave($usuario, "_email"); 
+        $sabor = Toolkit::SacarValorDeClave($producto, "_sabor");
+        $tipo = Toolkit::SacarValorDeClave($producto, "_tipo");
+        $cantidad = Toolkit::SacarValorDeClave($venta, "_cantidad"); 
+        $id = Toolkit::SacarValorDeClave($venta, "_id");
+        echo $id.", ".$email.", ".$sabor.", ".$tipo.", ".$cantidad.", ".$fechaSimple."<br>";
+        
+    } 
+}
 
 
 // // c- el listado de ventas de un usuario ingresado

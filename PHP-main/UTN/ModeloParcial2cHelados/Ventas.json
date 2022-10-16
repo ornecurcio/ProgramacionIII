@@ -1,6 +1,6 @@
 [
     {
-        "_id": null,
+        "_id": 1,
         "_usuario": {
             "_id": null,
             "_email": "carpincho@pampeano.com"
@@ -22,7 +22,7 @@
         "_file": ".\\ImagenesDeLaVenta\\\\crema_dulce de leche__20221016100021.jpg"
     },
     {
-        "_id": null,
+        "_id": 2,
         "_usuario": {
             "_id": 3,
             "_email": "orne@pampeana.com"
@@ -44,7 +44,7 @@
         "_file": ".\\ImagenesDeLaVenta\\\\crema_dulce de leche__20221016100032.jpg"
     },
     {
-        "_id": null,
+        "_id": 3,
         "_usuario": {
             "_id": 4,
             "_email": "minupuma@pampeana.com"
