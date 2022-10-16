@@ -20,7 +20,7 @@
         "_sabor": "chocolate",
         "_tipo": "crema",
         "_precio": "2000",
-        "_stock": "300",
+        "_stock": 270,
         "_file": ".\\ImagenesDeHelado\\chocolate_crema.jpg"
     }
 ]

@@ -23,10 +23,10 @@ switch ($metodo)
         }
         break;
     case "GET":
-        include "ConsultasVentas.php";
+        include_once "ConsultasVentas.php";
         break;
     case "PUT":
-        //include_once "ModificarVenta.php";
+        include_once "ModificarVenta.php";
         break;
     case "DELETE":
         //include_once "BorrarVenta.php";

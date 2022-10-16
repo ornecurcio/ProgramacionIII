@@ -39,13 +39,14 @@ class Venta
             $this->_fecha = new DateTime("now");
             $archivo = $this->GuardarImagen($producto, $usuario);
             $this->_file = $archivo;
+            Toolkit::AsignarId($this, $arrayVentas); 
             //var_dump($this);
             
             array_push($arrayVentas, $this); 
             GuardarLeerJson::GrabarEnJson($arrayVentas,$rutaVentas);
            
             $cantidad = Toolkit::SacarValorDeClave($this, "_cantidad"); 
-            //Producto::RestarStock($this->, $arrayProductos, $rutaProductos, $cantidad);
+            Producto::RestarStock($idProductoAux,$arrayProductos, $rutaProductos, $cantidad);
             $retorno = true;
             
         } 
@@ -77,75 +78,77 @@ class Venta
         return $dir;
     }
 
-    // public static function Modificacion($numeroPedido, $email, $nombre, $tipo, $cantidad)
-    // {      
+    public static function Modificacion($numeroPedido, $email, $nombre, $tipo, $cantidad)
+    {      
        
-    //     $productoAux = new Producto($nombre, $tipo, null, null, null);
-    //     $arrayProductos = GuardarLeerJson::LeerJson("Pizza.json");
-    //     $arrayUsuarios = GuardarLeerJson::LeerJson("Usuarios.json");
-    //     $indice = Herramientas::ConsultaSiHayYCual($productoAux, $arrayProductos);
+        $productoAux = new Producto($nombre, $tipo, null, null, null);
+        $arrayProductos = GuardarLeerJson::LeerJson("Heladeria.json"); //OJO
+        $arrayUsuarios = GuardarLeerJson::LeerJson("Usuarios.json");
+        $indice = Toolkit::ConsultaSiHayYCual($productoAux, $arrayProductos);
 
-    //     if($indice > -1)
-    //     {
-    //         $hayStock = Producto::HayStockSuficiente($arrayProductos[$indice], $cantidad);
-    //         if($hayStock)
-    //         {
+        if($indice > -1)
+        {
+            $hayStock = Producto::HayStockSuficiente($arrayProductos[$indice], $cantidad);
+            if($hayStock)
+            {
+                $arrayVentas = GuardarLeerJson::LeerJson("Ventas.json"); 
+                $venta = Toolkit::ConseguirObjetoPorId($numeroPedido, $arrayVentas); 
+                if($venta)
+                {
+                    $idProducto = Toolkit::SacarValorDeClave($arrayProductos[$indice], "_id");
+                    $usuarioAux = new Usuario($email);
+                    $usuarioAux = $usuarioAux->Alta($arrayUsuarios, "Usuarios.json");
+                    $idUsuario = Toolkit::SacarValorDeClave($usuarioAux, "_id");
+                    $venta->_usuario = $usuarioAux; 
+                    $venta->producto = $productoAux; 
+                    $venta->_cantidad = $cantidad; 
+                }
+                else
+                {
+                    printf("No existe este pedido. <br>");
+                }
+            }
+            else
+            {
+                printf("No quedan productos de este tipo. <br>");
+            }
+        }
+        else
+        {
+            printf("No existe este tipo de producto. <br>");
+        }
 
-    //             $idProducto = Herramientas::SacarValorDeClave($arrayProductos[$indice], "_id");
-    //             $usuarioAux = new Usuario($email);
-    //             $usuarioAux = $usuarioAux->Alta($arrayUsuarios, "Usuarios.json");
-    //             $idUsuario = Herramientas::SacarValorDeClave($usuarioAux, "_id");
-                
-    //             if(Venta::ModificarEnBd($numeroPedido, $idUsuario, $idProducto, $cantidad))
-    //             {
-    //                 printf("Modificación realizada con éxito. <br>");
-    //             }
-    //             else
-    //             {
-    //                 printf("No existe este pedido. <br>");
-    //             }
-    //         }
-    //         else
-    //         {
-    //             printf("No quedan productos de este tipo. <br>");
-    //         }
-    //     }
-    //     else
-    //     {
-    //         printf("No existe este tipo de producto. <br>");
-    //     }
-
-    // }
+    }
 
     
-    // public static function Borrar($id)
-    // {   
-    //     $retorno = false;
-    //     $venta = AccesoDatos::ExisteEnBd($id, "venta");
-    //     if($venta != null && AccesoDatos::BorrarEnBd($id, "venta"))
-    //     {    
-    //         $ruta = array_column($venta, "archivo");
-    //         $aux = explode("/", $ruta[0]);
-    //         var_dump($aux);
-    //         printf($aux); 
-    //         $nombreImagen = $aux[2];
-    //         $antiguoDir = ".".DIRECTORY_SEPARATOR."ImagenesDeLaVenta".DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR;
-    //         $nuevoDir = ".".DIRECTORY_SEPARATOR."BACKUPVENTAS".DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR;
-    //         Venta::MoverImagen($nombreImagen, $antiguoDir, $nuevoDir);
-    //         $retorno = true;
-    //     }
+    public static function Borrar($id)
+    {   
+        $retorno = false;
+        $venta = AccesoDatos::ExisteEnBd($id, "venta");
+        if($venta != null && AccesoDatos::BorrarEnBd($id, "venta"))
+        {    
+            $ruta = array_column($venta, "archivo");
+            $aux = explode("/", $ruta[0]);
+            var_dump($aux);
+            printf($aux); 
+            $nombreImagen = $aux[2];
+            $antiguoDir = ".".DIRECTORY_SEPARATOR."ImagenesDeLaVenta".DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR;
+            $nuevoDir = ".".DIRECTORY_SEPARATOR."BACKUPVENTAS".DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR;
+            Venta::MoverImagen($nombreImagen, $antiguoDir, $nuevoDir);
+            $retorno = true;
+        }
 
-    //     return $retorno;
-    // }
+        return $retorno;
+    }
     
-    // public static function MoverImagen($nombreImagen, $antiguoDir, $nuevoDir)
-    // {
-    //     if(!file_exists($nuevoDir)) 
-    //     {
-    //         mkdir($nuevoDir, 0777, true);
-    //     }
-    //     rename($antiguoDir.$nombreImagen, $nuevoDir.$nombreImagen);
-    // } 
+    public static function MoverImagen($nombreImagen, $antiguoDir, $nuevoDir)
+    {
+        if(!file_exists($nuevoDir)) 
+        {
+            mkdir($nuevoDir, 0777, true);
+        }
+        rename($antiguoDir.$nombreImagen, $nuevoDir.$nombreImagen);
+    } 
 
     
 
