@@ -2,25 +2,7 @@
 
 class Toolkit
 {
-    public static function AsignarId($item, $array)
-    {
-        $idMasAlto = 0;  
-
-        if(sizeof($array) > 0)
-        {                    
-            foreach($array as $auxItem)
-            {          
-                $id = Toolkit::SacarValorDeClave($auxItem, "id");
-            
-                if($id >= $idMasAlto)
-                {
-                    $idMasAlto = $id;
-                }
-            }
-        }    
-        $item->_id = $idMasAlto + 1;
-    }
-
+   
     public static function BuscarCupon($listaDeCupones,$numero)
     {
         if(count($listaDeCupones)>0)
@@ -92,38 +74,6 @@ class Toolkit
         return $retorno;
     }
 
-    public static function ExisteUnValorEnArray($item, $array, $clave)
-    {
-        $retorno = false;
-        $valorItem = Toolkit::SacarValorDeClave($item, $clave);
-
-        foreach($array as $aux)
-        {
-            $valorAux = Toolkit::SacarValorDeClave($aux, $clave);
-
-            if($valorAux == $valorItem)
-            {
-                $retorno = true;
-                break;       
-            }
-        }
-        return $retorno;
-    }
-
-    public static function ConseguirIdPorElIndex($item, $array)
-    {
-        $retorno = -1;
-
-        $indice = Toolkit::ConsultaSiHayYCual($item, $array);
-
-        if($indice > -1)
-        {
-            $retorno = Toolkit::SacarValorDeClave($array[$indice], "id");
-        }
-
-        return $retorno;
-    }
-
     public static function ConseguirObjetoPorId($id, $array)
     {
         $retorno = null;
@@ -139,6 +89,7 @@ class Toolkit
         }
         return $retorno;
     }
+
     public static function BuscarVenta($listaDeVentas,$numero)
     {
 
@@ -153,10 +104,62 @@ class Toolkit
         }
         return null;
     }
+
     public static function CompararNombres($ventaUno, $ventaDos)
     {
         return strcmp($ventaUno->nombre, $ventaDos->nombre);
     }
+
+    // public static function ConseguirIdPorElIndex($item, $array)
+    // {
+    //     $retorno = -1;
+
+    //     $indice = Toolkit::ConsultaSiHayYCual($item, $array);
+
+    //     if($indice > -1)
+    //     {
+    //         $retorno = Toolkit::SacarValorDeClave($array[$indice], "id");
+    //     }
+
+    //     return $retorno;
+    // }
+    // public static function ExisteUnValorEnArray($item, $array, $clave)
+    // {
+    //     $retorno = false;
+    //     $valorItem = Toolkit::SacarValorDeClave($item, $clave);
+
+    //     foreach($array as $aux)
+    //     {
+    //         $valorAux = Toolkit::SacarValorDeClave($aux, $clave);
+
+    //         if($valorAux == $valorItem)
+    //         {
+    //             $retorno = true;
+    //             break;       
+    //         }
+    //     }
+    //     return $retorno;
+    // }
+
+    // public static function AsignarId($item, $array)
+    // {
+    //     $idMasAlto = 0;  
+
+    //     if(sizeof($array) > 0)
+    //     {                    
+    //         foreach($array as $auxItem)
+    //         {          
+    //             $id = Toolkit::SacarValorDeClave($auxItem, "id");
+            
+    //             if($id >= $idMasAlto)
+    //             {
+    //                 $idMasAlto = $id;
+    //             }
+    //         }
+    //     }    
+    //     $item->_id = $idMasAlto + 1;
+    // }
+
 }
 
 ?>

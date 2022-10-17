@@ -40,5 +40,11 @@
         "id": 107,
         "porcentajeDescuento": 10,
         "usado": false
+    },
+    {
+        "idPedido": 40,
+        "id": 108,
+        "porcentajeDescuento": 10,
+        "usado": false
     }
 ]
