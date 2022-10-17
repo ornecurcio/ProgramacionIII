@@ -2,22 +2,6 @@
 
 class Toolkit
 {
-   
-    public static function BuscarCupon($listaDeCupones,$numero)
-    {
-        if(count($listaDeCupones)>0)
-        {
-            foreach ($listaDeCupones as $cupon)
-            {
-                if($cupon->id == $numero)
-                {
-                    return $cupon;
-                }
-            }
-        }
-        return null;
-    }
-    
     public static function ConseguirIDMaximo($lista,$numeroPartida)
     {
         $idMaxima = $numeroPartida;
@@ -34,6 +18,21 @@ class Toolkit
         return $idMaxima;     
     }
 
+    public static function BuscarCupon($listaDeCupones,$numero)
+    {
+        if(count($listaDeCupones)>0)
+        {
+            foreach ($listaDeCupones as $cupon)
+            {
+                if($cupon->id == $numero)
+                {
+                    return $cupon;
+                }
+            }
+        }
+        return null;
+    }
+    
     public static function SacarValorDeClave($objeto, $clave)
     {
         foreach($objeto as $claveAux => $valor)
@@ -59,21 +58,7 @@ class Toolkit
         }
         return null;
     }
-    public static function ConsultaSiHayYCual($item, $array)
-    {   
-        $retorno = -1;
-
-        for($i = 0 ; $i < sizeof($array) ; $i++)
-        {         
-            if($item->Equals($array[$i], $item))
-            {
-                $retorno = $i;
-                break;
-            }
-        }
-        return $retorno;
-    }
-
+    
     public static function ConseguirObjetoPorId($id, $array)
     {
         $retorno = null;
@@ -109,6 +94,21 @@ class Toolkit
     {
         return strcmp($ventaUno->nombre, $ventaDos->nombre);
     }
+
+    // public static function ConsultaSiHayYCual($item, $array)
+    // {   
+    //     $retorno = -1;
+
+    //     for($i = 0 ; $i < sizeof($array) ; $i++)
+    //     {         
+    //         if($item->Equals($array[$i], $item))
+    //         {
+    //             $retorno = $i;
+    //             break;
+    //         }
+    //     }
+    //     return $retorno;
+    // }
 
     // public static function ConseguirIdPorElIndex($item, $array)
     // {

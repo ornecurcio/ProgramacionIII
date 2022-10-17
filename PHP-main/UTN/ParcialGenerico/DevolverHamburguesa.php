@@ -32,7 +32,7 @@ if($listaDeJSON!=null &&count($listaDeJSON)>0)
 {
     foreach ($listaDeJSON as $devolucionJson)
     {
-        $devolucionAuxiliar = new Venta ($devolucionJson["id"],
+        $devolucionAuxiliar = new Devolucion ($devolucionJson["id"],
                                     $devolucionJson["mailUsuario"],
                                     $devolucionJson["nombre"],
                                     $devolucionJson["tipo"],

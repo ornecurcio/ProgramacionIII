@@ -23,6 +23,7 @@ if($listaDeJSON!=null &&count($listaDeJSON)>0)
         array_push($listaDeProductos,$productoAuxiliar);
     }
 }
+
 $listaDeJSON = GuardarLeerJson::LeerJson("Ventas.json");
 if($listaDeJSON!=null &&count($listaDeJSON)>0)
 {

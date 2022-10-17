@@ -6,7 +6,7 @@ include_once "Toolkit.php";
 
 $listaDeJSON = GuardarLeerJson::LeerJson("Hamburguesas.json");
 $listaDeProductos=array();
-
+//$listaDeProductos = GuardarLeerJson::LeerJson("Hamburguesas.json");
 if($listaDeJSON!=null &&count($listaDeJSON)>0)
 {
 
