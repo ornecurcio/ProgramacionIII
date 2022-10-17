@@ -27,22 +27,7 @@ if($listaDeJSON!=null &&count($listaDeJSON)>0)
         array_push($listaDeVentas,$ventaAuxiliar);
     }
 }
-$listaDeJSON = GuardarLeerJson::LeerJson("Devoluciones.json");
-if($listaDeJSON!=null &&count($listaDeJSON)>0)
-{
-    foreach ($listaDeJSON as $devolucionJson)
-    {
-        $devolucionAuxiliar = new Devolucion ($devolucionJson["id"],
-                                    $devolucionJson["mailUsuario"],
-                                    $devolucionJson["nombre"],
-                                    $devolucionJson["tipo"],
-                                    $devolucionJson["cantidad"],
-                                    $devolucionJson["numeroDePedido"],
-                                    $devolucionJson["fechaDePedido"]);
 
-        array_push($listaDeDevoluciones,$devolucionAuxiliar);
-    }
-}
 
 $listaDeJSON = GuardarLeerJson::LeerJson("Cupones.json");
 if($listaDeJSON!=null &&count($listaDeJSON)>0)
@@ -58,6 +43,23 @@ if($listaDeJSON!=null &&count($listaDeJSON)>0)
     }
 }
 
+$listaDeJSON = GuardarLeerJson::LeerJson("Devoluciones.json");
+if($listaDeJSON!=null &&count($listaDeJSON)>0)
+{
+    foreach ($listaDeJSON as $devolucionJson)
+    {
+        $devolucionAuxiliar = new Devolucion ($devolucionJson["id"],
+                                    $devolucionJson["mailUsuario"],
+                                    $devolucionJson["nombre"],
+                                    $devolucionJson["tipo"],
+                                    $devolucionJson["cantidad"],
+                                    $devolucionJson["numeroDePedido"],
+                                    $devolucionJson["fechaDePedido"], 
+                                    $devolucionJson["causa"]);
+
+        array_push($listaDeDevoluciones,$devolucionAuxiliar);
+    }
+}
 
 $numeroDePedido = $_POST["numeroDePedido"];
 $causaDevolucion = $_POST["causa"];
@@ -65,6 +67,7 @@ $ventaBuscada = Toolkit::BuscarVenta($listaDeVentas,$numeroDePedido);
 
 if($ventaBuscada !=null)
 {
+    $ventaBuscada->causa = $causaDevolucion;
     array_push($listaDeDevoluciones,$ventaBuscada);
     $cuponDescuento = new Cupon (Toolkit::ConseguirIDMaximo($listaDeCupones,100)+1,
                                                             $numeroDePedido,
@@ -73,6 +76,7 @@ if($ventaBuscada !=null)
     echo "Cupon generado";
     array_push($listaDeCupones,$cuponDescuento);
 }
+
 
 
 GuardarLeerJson::GrabarEnJson($listaDeVentas,"Ventas.json");

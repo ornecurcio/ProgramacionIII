@@ -1,56 +1,72 @@
 [
     {
-        "numeroDePedido": 2,
         "id": 6,
+        "numeroDePedido": 2,
         "mailUsuario": "calamardo@artista.com",
         "nombre": "burguerasquerosa",
         "tipo": "doble",
         "cantidad": 5,
-        "fechaDePedido": "22-10-17"
+        "fechaDePedido": "22-10-17",
+        "causa": "es muy asqueroda"
     },
     {
-        "numeroDePedido": 36,
         "id": 8,
+        "numeroDePedido": 36,
         "mailUsuario": "perlita@tiburon.com",
         "nombre": "cangreburguer",
         "tipo": "simple",
         "cantidad": 6,
-        "fechaDePedido": "22-10-17"
+        "fechaDePedido": "22-10-17",
+        "causa": "es muy pequeña"
     },
     {
-        "numeroDePedido": 40,
         "id": 5,
+        "numeroDePedido": 40,
         "mailUsuario": "calamardo@artista.com",
         "nombre": "burguerasquerosa",
         "tipo": "doble",
         "cantidad": 5,
-        "fechaDePedido": "22-10-17"
+        "fechaDePedido": "22-10-17",
+        "causa": "es muy asqueroda"
     },
     {
-        "numeroDePedido": 25,
         "id": 2,
+        "numeroDePedido": 25,
         "mailUsuario": "bob@cuadrado.com",
         "nombre": "burguerasquerosa",
         "tipo": "doble",
         "cantidad": 20,
-        "fechaDePedido": "22-10-17"
+        "fechaDePedido": "22-10-17",
+        "causa": "es muy asquerosa"
     },
     {
-        "numeroDePedido": 40,
         "id": 5,
+        "numeroDePedido": 40,
         "mailUsuario": "calamardo@artista.com",
         "nombre": "burguerasquerosa",
         "tipo": "doble",
         "cantidad": 5,
-        "fechaDePedido": "22-10-17"
+        "fechaDePedido": "22-10-17",
+        "causa": "es muy asquerosa"
     },
     {
-        "numeroDePedido": 40,
         "id": 5,
+        "numeroDePedido": 40,
         "mailUsuario": "calamardo@artista.com",
         "nombre": "burguerasquerosa",
         "tipo": "doble",
         "cantidad": 5,
-        "fechaDePedido": "22-10-17"
+        "fechaDePedido": "22-10-17",
+        "causa": "es muy asquerosa"
+    },
+    {
+        "numeroDePedido": 3,
+        "id": 4,
+        "mailUsuario": "calamardo@artista",
+        "nombre": "cangreburguer",
+        "tipo": "simple",
+        "cantidad": 5,
+        "fechaDePedido": "22-10-17",
+        "causa": "le faltan pepinillos"
     }
 ]

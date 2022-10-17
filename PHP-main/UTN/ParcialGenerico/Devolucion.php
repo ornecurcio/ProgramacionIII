@@ -10,7 +10,7 @@ class Devolucion
     public int $cantidad;
     public string $fechaDePedido;
 
-    public function __construct($id,$mailUsuario,$nombre,$tipo,$cantidad, $numeroDePedido,$fechaDePedido="")
+    public function __construct($id,$mailUsuario,$nombre,$tipo,$cantidad, $numeroDePedido,$fechaDePedido="", $causa)
     { 
         $this->id = $id;   
         $this->mailUsuario = $mailUsuario;   
@@ -19,6 +19,7 @@ class Devolucion
         $this->cantidad = $cantidad;    
         $this->fechaDePedido = $fechaDePedido;   
         $this->numeroDePedido = $numeroDePedido;
+        $this->causa = $causa; 
     }
 
     public function Mostrar()
