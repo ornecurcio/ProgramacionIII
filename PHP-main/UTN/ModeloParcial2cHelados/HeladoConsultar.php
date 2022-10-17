@@ -7,13 +7,27 @@ $sabor = $_POST["sabor"];
 $tipo = $_POST["tipo"];
 $ruta = "Heladeria.json"; // OJO
 
-
-$productoAux = new Producto($sabor, $tipo, null, null, null);
 $array = GuardarLeerJson::LeerJson($ruta);
+$listaProductos = array();
+
+if($array!=null &&count($array)>0)
+{
+    foreach ($array as $productoJson) 
+    {
+        $productoAuxiliar = new Producto($productoJson["_id"],
+                                        $productoJson["_sabor"],
+                                        $productoJson["_tipo"],
+                                        $productoJson["_precio"],
+                                        $productoJson["_stock"]);
+
+        array_push($listaProductos,$productoAuxiliar);
+    }
+}
 
 if(isset($sabor) && isset($tipo))
 {
-    if(Toolkit::ConsultaSiHayYCual($productoAux, $array) > -1)
+    $productoAux = new Producto(null, $sabor, $tipo, null, null); 
+    if(Toolkit::BuscarProducto($listaProductos, $sabor, $tipo) != null)
     {
         printf("Sí hay :)");
     }

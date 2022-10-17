@@ -1,0 +1,44 @@
+[
+    {
+        "idPedido": 25,
+        "id": 101,
+        "porcentajeDescuento": 10,
+        "usado": true
+    },
+    {
+        "idPedido": 40,
+        "id": 102,
+        "porcentajeDescuento": 10,
+        "usado": false
+    },
+    {
+        "idPedido": 2,
+        "id": 103,
+        "porcentajeDescuento": 10,
+        "usado": false
+    },
+    {
+        "idPedido": 36,
+        "id": 104,
+        "porcentajeDescuento": 10,
+        "usado": false
+    },
+    {
+        "idPedido": 2,
+        "id": 105,
+        "porcentajeDescuento": 10,
+        "usado": false
+    },
+    {
+        "idPedido": 36,
+        "id": 106,
+        "porcentajeDescuento": 10,
+        "usado": false
+    },
+    {
+        "idPedido": 40,
+        "id": 107,
+        "porcentajeDescuento": 10,
+        "usado": false
+    }
+]

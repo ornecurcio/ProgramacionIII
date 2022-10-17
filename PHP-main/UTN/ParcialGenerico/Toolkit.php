@@ -10,7 +10,7 @@ class Toolkit
         {                    
             foreach($array as $auxItem)
             {          
-                $id = Toolkit::SacarValorDeClave($auxItem, "_id");
+                $id = Toolkit::SacarValorDeClave($auxItem, "id");
             
                 if($id >= $idMasAlto)
                 {
@@ -19,6 +19,37 @@ class Toolkit
             }
         }    
         $item->_id = $idMasAlto + 1;
+    }
+
+    public static function BuscarCupon($listaDeCupones,$numero)
+    {
+        if(count($listaDeCupones)>0)
+        {
+            foreach ($listaDeCupones as $cupon)
+            {
+                if($cupon->id == $numero)
+                {
+                    return $cupon;
+                }
+            }
+        }
+        return null;
+    }
+    
+    public static function ConseguirIDMaximo($lista,$numeroPartida)
+    {
+        $idMaxima = $numeroPartida;
+        if(count($lista)>0)
+        {
+            foreach ($lista as $item)
+            {
+                if($item->id > $idMaxima)
+                {
+                    $idMaxima =$item->id;
+                }
+            }
+        }
+        return $idMaxima;     
     }
 
     public static function SacarValorDeClave($objeto, $clave)
@@ -32,6 +63,20 @@ class Toolkit
         }
     }
 
+    public static function BuscarProducto($listaDeProductos,$nombre,$tipo)
+    {
+        if(count($listaDeProductos)>0)
+        {
+            foreach ($listaDeProductos as $producto)
+            {
+                if((strcmp($producto->nombre,$nombre)==0)&&(strcmp($producto->tipo,$tipo)==0))
+                {
+                    return $producto;
+                }
+            }
+        }
+        return null;
+    }
     public static function ConsultaSiHayYCual($item, $array)
     {   
         $retorno = -1;
@@ -73,7 +118,7 @@ class Toolkit
 
         if($indice > -1)
         {
-            $retorno = Toolkit::SacarValorDeClave($array[$indice], "_id");
+            $retorno = Toolkit::SacarValorDeClave($array[$indice], "id");
         }
 
         return $retorno;
@@ -85,7 +130,7 @@ class Toolkit
 
         foreach($array as $item)
         {
-            $idAux = Toolkit::SacarValorDeClave($item, "_id");
+            $idAux = Toolkit::SacarValorDeClave($item, "numeroDePedido");
             if($idAux == $id)
             {
                 $retorno = $item;
@@ -94,57 +139,23 @@ class Toolkit
         }
         return $retorno;
     }
-
-    public static function ImprimirConsulta($consulta)
-    {       
-        $retorno = null;
-
-        try
-        {
-            $retorno = array();
-            $conexion = AccesoDatos::dameUnObjetoAcceso();
-
-            $resultado = $conexion->RetornarConsulta($consulta);
-            $resultado->execute();
-            $retorno = $resultado->fetchAll(PDO::FETCH_ASSOC);
-        }
-        catch (Throwable $mensaje)
-        {
-            printf("Error al consultar la base de datos: <br> $mensaje .<br>");
-            die();
-        }
-        finally
-        {
-            return $retorno;
-        }  
-    }
-
-    public static function ImprimirArrayComoTabla($array)
+    public static function BuscarVenta($listaDeVentas,$numero)
     {
-        if(sizeof($array) == 0 || $array == null)
-        {
-            print "\t<td>Sin datos disponibles.</td>\n";
-            print "</tr>\n";
-        }
-        else
-        { 
-            foreach ($array as $fila) 
+
+        if(count($listaDeVentas)>0){
+            foreach ($listaDeVentas as $venta)
             {
-                foreach ($fila as $columna) 
+                if($venta->numeroDePedido == $numero)
                 {
-                    if($columna == null)
-                    {
-                        print "\t<td>Sin datos disponibles.</td>\n";
-                    }
-                    else
-                    {
-                        print "\t<td>$columna</td>\n";
-                    }
-                    print "\t<td>$columna</td>\n";
+                    return $venta;
                 }
-                print "</tr>\n";
-            } 
-        }       
+            }
+        }
+        return null;
+    }
+    public static function CompararNombres($ventaUno, $ventaDos)
+    {
+        return strcmp($ventaUno->nombre, $ventaDos->nombre);
     }
 }
 

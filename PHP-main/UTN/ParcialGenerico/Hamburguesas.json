@@ -1,66 +1,37 @@
 [
     {
-        "_id": 1,
-        "_nombre": "Cangreburger",
-        "_tipo": "simple",
-        "_precio": "1300",
-        "_cantidad": 115,
-        "_file": ".\\ImagenesDeHamburguesas\\\\Cangreburger_simple.jpg"
+        "nombre": "cangreburguer",
+        "precio": 1200,
+        "tipo": "simple",
+        "stock": 217,
+        "id": 1001
     },
     {
-        "_id": 2,
-        "_nombre": "Color Cangreburger",
-        "_tipo": "doble",
-        "_precio": "1580",
-        "_cantidad": 125,
-        "_file": ".\\ImagenesDeHamburguesas\\\\Color Cangreburger_doble.jpg"
+        "nombre": "salchiburguer",
+        "precio": 1000,
+        "tipo": "simple",
+        "stock": 70,
+        "id": 1002
     },
     {
-        "_id": 3,
-        "_nombre": "Jellyburger",
-        "_tipo": "simple",
-        "_precio": "2950",
-        "_cantidad": 45,
-        "_file": ".\\ImagenesDeHamburguesas\\\\Jellyburger_simple.jpg"
+        "nombre": "jellyburguer",
+        "precio": 1800,
+        "tipo": "simple",
+        "stock": 300,
+        "id": 1003
     },
     {
-        "_id": 4,
-        "_nombre": "Burger Asquerosa",
-        "_tipo": "doble",
-        "_precio": "1000",
-        "_cantidad": 20,
-        "_file": ".\\ImagenesDeHamburguesas\\\\Burger Asquerosa_doble.jpg"
+        "nombre": "colorburguer",
+        "precio": 1600,
+        "tipo": "doble",
+        "stock": 450,
+        "id": 1004
     },
     {
-        "_id": 5,
-        "_nombre": "Salchi Burger",
-        "_tipo": "simple",
-        "_precio": "1500",
-        "_cantidad": 20,
-        "_file": ".\\ImagenesDeHamburguesas\\\\Salchi Burger_simple.jpg"
-    },
-    {
-        "_id": 6,
-        "_nombre": "Nuevo test",
-        "_tipo": "simple",
-        "_precio": "1500",
-        "_cantidad": 240,
-        "_file": ".\\ImagenesDeHamburguesas\\\\Nuevo test_simple.jpg"
-    },
-    {
-        "_id": 7,
-        "_nombre": "Nuevo testt",
-        "_tipo": "simple",
-        "_precio": "1500",
-        "_cantidad": "120",
-        "_file": ".\\ImagenesDeHamburguesas\\\\Nuevo testt_simple.jpg"
-    },
-    {
-        "_id": 8,
-        "_nombre": "Nuevo testtt",
-        "_tipo": "simple",
-        "_precio": "1500",
-        "_cantidad": "120",
-        "_file": ".\\ImagenesDeHamburguesas\\\\Nuevo testtt_simple.jpg"
+        "nombre": "burguerasquerosa",
+        "precio": 2000,
+        "tipo": "doble",
+        "stock": 70,
+        "id": 1005
     }
 ]

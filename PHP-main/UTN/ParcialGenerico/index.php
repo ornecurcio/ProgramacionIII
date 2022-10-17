@@ -16,17 +16,17 @@ switch($metodo)
                 include 'AltaVenta.php';
                 break;
             case "cargar":
-                include 'HamburguesaCarga.php';
+                include 'HamburguesaAlta.php';
                 break;          
-            case "devoluciones":
-                //include 'DevolverHamburguesa.php';
+            case "devolver":
+                include 'DevolverHamburguesa.php';
                 break; 
         }
     case "GET":
         switch(key($_GET))
         {
             case "consultas":
-                //include 'ConsultasVentas.php';
+                include 'ConsultasVentas.php';
                break;
             case "consultasDev":
                 include 'ConsultaDevoluciones.php';
@@ -34,12 +34,12 @@ switch($metodo)
         }
     case "PUT":
         {
-            //include 'ModificarVenta.php';
+            include 'ModificarVenta.php';
             break;
         }
     case "DELETE":
         {
-            //include 'BorrarVenta.php';
+            include 'BorrarVenta.php';
             break;
         }
 }

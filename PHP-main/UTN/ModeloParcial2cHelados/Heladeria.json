@@ -3,24 +3,24 @@
         "_id": 1,
         "_sabor": "dulce de leche",
         "_tipo": "crema",
-        "_precio": "2500",
-        "_stock": "200",
-        "_file": ".\\ImagenesDeHelado\\dulce de leche_crema.jpg"
+        "_precio": "150",
+        "_stock": "150",
+        "_file": null
     },
     {
         "_id": 2,
-        "_sabor": "limon",
-        "_tipo": "agua",
-        "_precio": "1200",
-        "_stock": "300",
-        "_file": ".\\ImagenesDeHelado\\limon_agua.jpg"
+        "_sabor": "chocolate",
+        "_tipo": "crema",
+        "_precio": "300",
+        "_stock": 170,
+        "_file": null
     },
     {
         "_id": 3,
-        "_sabor": "chocolate",
-        "_tipo": "crema",
-        "_precio": "2000",
-        "_stock": 270,
-        "_file": ".\\ImagenesDeHelado\\chocolate_crema.jpg"
+        "_sabor": "limon",
+        "_tipo": "agua",
+        "_precio": "100",
+        "_stock": 180,
+        "_file": null
     }
 ]

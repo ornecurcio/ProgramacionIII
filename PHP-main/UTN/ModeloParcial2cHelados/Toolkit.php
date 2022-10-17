@@ -21,6 +21,37 @@ class Toolkit
         $item->_id = $idMasAlto + 1;
     }
 
+    public static function BuscarCupon($listaDeCupones,$numero)
+    {
+
+        if(count($listaDeCupones)>0){
+            foreach ($listaDeCupones as $cupon)
+            {
+                if($cupon->_id == $numero)
+                {
+                    return $cupon;
+                }
+            }
+        }
+        return null;
+    }
+    
+    public static function ConseguirIDMaximo($lista,$numeroPartida)
+    {
+        $idMaxima = $numeroPartida;
+        if(count($lista)>0)
+        {
+            foreach ($lista as $item)
+            {
+                if($item->_id > $idMaxima)
+                {
+                    $idMaxima =$item->_id;
+                }
+            }
+        }
+        return $idMaxima;     
+    }
+
     public static function SacarValorDeClave($objeto, $clave)
     {
         foreach($objeto as $claveAux => $valor)
@@ -32,6 +63,20 @@ class Toolkit
         }
     }
 
+    public static function BuscarProducto($listaDeProductos,$sabor,$tipo)
+    {
+        if(count($listaDeProductos)>0)
+        {
+            foreach ($listaDeProductos as $producto)
+            {
+                if((strcmp($producto->_sabor,$sabor)==0)&&(strcmp($producto->_tipo,$tipo)==0))
+                {
+                    return $producto;
+                }
+            }
+        }
+        return null;
+    }
     public static function ConsultaSiHayYCual($item, $array)
     {   
         $retorno = -1;

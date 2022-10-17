@@ -1,46 +1,33 @@
 <?php
 
-/**HamburguesaConsultar.php: (por POST)Se ingresa Nombre, Tipo, si coincide con algún registro del archivo
-Hamburguesas.json, retornar “Si Hay”. De lo contrario informar si no existe el tipo o el nombre. */
+include_once "Producto.php";
+include_once "GuardarLeerJson.php";
+include_once "Toolkit.php";
 
-include_once 'Hamburguesa.php';
-include_once 'GuardarLeerJson.php';
+$listaDeJSON = GuardarLeerJson::LeerJson("Hamburguesas.json");
+$listaDeProductos=array();
 
-$nombre = $_POST["nombre"];
-$tipo = $_POST["tipo"];
-$ruta = "Hamburguesas.json"; // OJO
-
-
-$hamburguesaAux = new Hamburguesa($nombre, $tipo, null, null, null);
-$array = GuardarLeerJson::LeerJson($ruta);
-
-if(isset($nombre) && isset($tipo))
+if($listaDeJSON!=null &&count($listaDeJSON)>0)
 {
-    if(Toolkit::ConsultaSiHayYCual($hamburguesaAux, $array) > -1)
+    foreach ($listaDeJSON as $productoJson) 
     {
-        printf("Sí hay :)");
-    }
-    else
-    {
-        if(Toolkit::ExisteUnValorEnArray($hamburguesaAux, $array, "_nombre"))
-        {
-            printf("Hay del mismo nombre. <br>");
-        }
-        else
-        {
-            printf("No hay del mismo nombre. <br>");
-        }
-    
-        if(Toolkit::ExisteUnValorEnArray($hamburguesaAux, $array, "_tipo"))
-        {
-            printf("Hay del mismo tipo. <br>");
-        }
-        else
-        {
-            printf("No hay del mismo tipo. <br>");
-        }
+        $productoAux = new Producto($productoJson["id"],
+                                    $productoJson["nombre"],
+                                    $productoJson["precio"],
+                                    $productoJson["tipo"],
+                                    $productoJson["stock"]);
+
+        array_push($listaDeProductos,$productoAux);
     }
 }
 
+if(Toolkit::BuscarProducto($listaDeProductos,$_POST["nombre"],$_POST["tipo"]))
+{
+    echo "Si hay :)";
+}
+else
+{
+    echo "No existe el nombre o el tipo";
+}
 
 ?>

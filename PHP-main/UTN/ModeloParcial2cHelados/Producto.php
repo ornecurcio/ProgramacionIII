@@ -14,16 +14,22 @@ class Producto
     public $_file;
     private $_nombreCarpeta;
     
-    public function __construct($sabor, $tipo, $precio, $stock, $file)
+    public function __construct($id, $sabor, $tipo, $precio, $stock)
     {
+        $this->setId($id);
         $this->setSabor($sabor);
         $this->setTipo($tipo);
         $this->setPrecio($precio);
         $this->setStock($stock);
-        $this->setFile($file);
         $this->_nombreCarpeta = 'ImagenesDeHelado';   // OJO
     }
-    
+    public function setId($id)
+    {
+        if (!empty($id) && is_numeric($id)) 
+        {
+            $this->_id = $id;
+        }
+    }
     public function setSabor($sabor)
     {
         if (!empty($sabor)) 
@@ -56,13 +62,6 @@ class Producto
         }
     }
 
-    public function setFile($file)
-    {
-        if(!empty($file))
-        {
-            $this->_file = $file;
-        }
-    }
     public function Equals($itemUno, $itemDos)
     {
         $retorno = false;
@@ -129,7 +128,7 @@ class Producto
         }
 
         $dir = $destino.$nombreFoto;
-        move_uploaded_file($this->_file["tmp_name"], $dir);
+        move_uploaded_file($_FILES["archivo"]["tmp_name"], $dir);
         return $dir;
     }
 

@@ -18,7 +18,7 @@ switch ($metodo)
                 include_once "AltaVenta.php";
                 break;
             case "devolucion":
-                //include_once "DevolverHelado.php";
+                include_once "DevolverHelado.php";
                 break;
         }
         break;

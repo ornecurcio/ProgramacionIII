@@ -7,14 +7,13 @@ $sabor =$_POST["sabor"];
 $tipo = $_POST["tipo"];
 $stock = $_POST["stock"];
 $precio = $_POST["precio"];
-$archivo = $_FILES["archivo"]; 
 
 $ruta = "Heladeria.json"; //OJO
 $array = GuardarLeerJson::LeerJson($ruta);
 
 if(isset($sabor) && isset($tipo) && isset($stock) && isset($precio))
 {
-    $productoAux = new Producto($sabor, $tipo, $precio, $stock, $archivo);
+    $productoAux = new Producto((Toolkit::ConseguirIDMaximo($array,1)+1),$sabor, $tipo, $precio, $stock);
     Producto::AltaModificacion($productoAux, $array, $ruta);
     printf("Producto grabado con éxito :) <br>");   
 }

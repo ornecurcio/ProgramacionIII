@@ -1,65 +1,113 @@
 <?php
-/*AltaVenta.php: (por POST)se recibe el email del usuario y el nombre, tipo y cantidad ,si el ítem existe en
-Hamburguesas.json, y hay stock guardar en la base de datos( con la fecha, número de pedido y id
-autoincremental ) y se debe descontar la cantidad vendida del stock .*/
+include_once "Venta.php";
+include_once "Producto.php";
+include_once "GuardarLeerJson.php";
+include_once "Toolkit.php";
+include_once "Cupon.php";
 
-include_once 'Hamburguesa.php';
-include_once 'Venta.php';
-include_once 'Usuario.php';
-include_once 'GuardarLeerJson.php';
-include_once 'Toolkit.php';
-include_once 'AccesoDatos.php';
+$listaDeJSON = GuardarLeerJson::LeerJson("Hamburguesas.json");
+$listaDeProductos=array();
+$listaDeVentas = array();
+$listadDeCupones = array();
 
-
-$nombre = $_POST["nombre"];
-$tipo = $_POST["tipo"];
-$cantidad = $_POST["cantidad"];
-$email = $_POST["email"];
-$archivo = $_FILES["archivo"]; 
-
-$rutaHamburguesas = "Hamburguesas.json"; // OJO
-$rutaUsuarios = "Usuarios.json"; 
-
-$arrayHamburguesas = GuardarLeerJson::LeerJson($rutaHamburguesas);
-$arrayUsuarios = GuardarLeerJson::LeerJson($rutaUsuarios);
-
-$hamburguesaAux = new Hamburguesa($nombre, $tipo, null, null, null);
-$usuarioAux = new Usuario($email);
-$ventaAux = new Venta($cantidad, $archivo);
-
-$indiceHamburguesaAux = Toolkit::ConsultaSiHayYCual($hamburguesaAux, $arrayHamburguesas);
-
-if(isset($nombre) && isset($tipo) && isset($cantidad) && isset($email) && isset ($archivo))
+if($listaDeJSON!=null &&count($listaDeJSON)>0)
 {
-    if($indiceHamburguesaAux > -1)
-    {     
-        $hamburguesaAuxEnArray = $arrayHamburguesas[$indiceHamburguesaAux];
-        $stockHamburguesaAuxEnArray = Toolkit::SacarValorDeClave($hamburguesaAuxEnArray, "_cantidad");
-        $cantidadPedido = Toolkit::SacarValorDeClave($ventaAux, "_cantidad");
-    
-        if($stockHamburguesaAuxEnArray >= $cantidadPedido)
+    foreach ($listaDeJSON as $productoJson) 
+    {
+        $productoAuxiliar = new Producto($productoJson["id"],
+                                         $productoJson["nombre"],
+                                         $productoJson["precio"],
+                                         $productoJson["tipo"],
+                                         $productoJson["stock"]);
+
+        array_push($listaDeProductos,$productoAuxiliar);
+    }
+}
+$listaDeJSON = GuardarLeerJson::LeerJson("Ventas.json");
+if($listaDeJSON!=null &&count($listaDeJSON)>0)
+{
+    foreach ($listaDeJSON as $ventaJson)
+    {
+        $ventaAuxiliar = new Venta ($ventaJson["id"],
+                                    $ventaJson["mailUsuario"],
+                                    $ventaJson["nombre"],
+                                    $ventaJson["tipo"],
+                                    $ventaJson["cantidad"],
+                                    $ventaJson["numeroDePedido"],
+                                    $ventaJson["fechaDePedido"]);
+
+        array_push($listaDeVentas,$ventaAuxiliar);
+    }
+}
+
+$listaDeJSON = GuardarLeerJson::LeerJson("Cupones.json");
+if($listaDeJSON!=null &&count($listaDeJSON)>0)
+{
+    foreach ($listaDeJSON as $cuponJson)
+    {
+        $cuponAuxiliar = new Cupon ($cuponJson["id"],
+                                        $cuponJson["idPedido"],
+                                        $cuponJson["porcentajeDescuento"],
+                                        $cuponJson["usado"]);
+
+        array_push($listadDeCupones,$cuponAuxiliar);
+    }
+}
+
+$ventaCreada = CrearVenta($listaDeVentas,$listaDeProductos,$_POST["mailUsuario"],
+                                                           $_POST["nombre"],
+                                                           $_POST["tipo"],
+                                                           $_POST["cantidad"],
+                                                           $_POST["numeroDePedido"]);
+if($ventaCreada!=null)
+{
+    if($ventaCreada->GuardarImagen())
+    {
+        if($listaDeVentas == null)
         {
-            $usuarioAux = $usuarioAux->Alta($arrayUsuarios, $rutaUsuarios);
-            if($ventaAux->Alta($usuarioAux, $hamburguesaAuxEnArray, $arrayHamburguesas, $rutaHamburguesas))
+            $listaDeVentas= array();
+        }
+        $productoElegido = Toolkit::BuscarProducto($listaDeProductos,$_POST["nombre"],$_POST["tipo"]);
+        if($productoElegido !=null)
+        {
+            $cuponUtilizado = Toolkit::BuscarCupon($listadDeCupones,$_POST["cuponDescuento"]);
+            if($cuponUtilizado !=null)
             {
-                printf("Venta realizada con éxito.<br>");
+                $cuponUtilizado->usado = true;
+                echo "Cupon utilizado\n";
+            }
+            $stockActualizado = $productoElegido->stock - $_POST["cantidad"];
+            if($stockActualizado>=0)
+            {
+                $productoElegido->stock = $productoElegido->stock - $_POST["cantidad"];
+                echo "Venta creada con éxito";
+                array_push($listaDeVentas,$ventaCreada);
+                GuardarLeerJson::GrabarEnJson($listaDeVentas,"Ventas.json");
+                GuardarLeerJson::GrabarEnJson($listaDeProductos,"Hamburguesas.json");
+                GuardarLeerJson::GrabarEnJson($listadDeCupones,"Cupones.json");
+            }
+            else
+            {
+                echo "No hay más disponibilidad";
             }
         }
-        else
-        {
-            printf("No quedan productos de este tipo.<br>");
-        }
-    }
-    else
-    {
-        printf("No existe este producto.<br>");
+
     }
 }
 else
 {
-    printf("Introduzca todos los valores.");
+    echo "No se pudo crear la venta. Revisar los datos\n";
 }
 
-
+function CrearVenta($listaDeVentas,$listaDeProductos,$mailUsuario,$nombre,$tipo,$cantidad, $numeroDePedido)
+{
+    $productoElegido =Toolkit::BuscarProducto($listaDeProductos,$nombre,$tipo);
+    if($productoElegido != null)
+    {
+        $ventaNueva = new Venta(Toolkit::ConseguirIDMaximo($listaDeVentas,0)+1,$mailUsuario,$nombre,$tipo,$cantidad,$numeroDePedido);
+        return $ventaNueva;
+    }
+    return null;
+}
 
 ?>

@@ -1,0 +1,431 @@
+{
+	"info": {
+		"_postman_id": "0b802486-2ff5-46a4-8f17-8aa243a7ae62",
+		"name": "HamburgueseriaApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20134258"
+	},
+	"item": [
+		{
+			"name": "Alta Hamburguesa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "burguerasquerosa",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "doble",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "100",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "2000",
+							"type": "text"
+						},
+						{
+							"key": "archivo",
+							"type": "file",
+							"src": "/C:/Users/orne_/OneDrive/Documentos/----PROGRAMACION INFORMATICA----/Programacion III/burgerAsquerosa.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/UTN/ParcialGenerico/index.php?cargar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"UTN",
+						"ParcialGenerico",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "cargar",
+							"value": null
+						}
+					]
+				},
+				"description": "Alta Hamburguesa\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Hamburguesa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nombre",
+							"value": "burguerasquerosa",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "doble",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/UTN/ParcialGenerico/index.php?consultar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"UTN",
+						"ParcialGenerico",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "consultar",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alta Vender sin cupon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mailUsuario",
+							"value": "calamardo@artista.com",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "burguerasquerosa",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "doble",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "numeroDePedido",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "archivo",
+							"type": "file",
+							"src": "/C:/Users/orne_/OneDrive/Documentos/----PROGRAMACION INFORMATICA----/Programacion III/ventaCangreburger.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/UTN/ParcialGenerico/index.php?vender",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"UTN",
+						"ParcialGenerico",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "vender",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/UTN/ParcialGenerico/index.php?consultas&fechaVenta=2022-10-17&fechaMinima=2022-10-16&fechaMaxima=2022-10-18&usuario=bob@cuadrado.com&tipo=simple&nombre=colorburguer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"UTN",
+						"ParcialGenerico",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "consultas",
+							"value": null
+						},
+						{
+							"key": "fechaVenta",
+							"value": "2022-10-17"
+						},
+						{
+							"key": "fechaMinima",
+							"value": "2022-10-16"
+						},
+						{
+							"key": "fechaMaxima",
+							"value": "2022-10-18"
+						},
+						{
+							"key": "usuario",
+							"value": "bob@cuadrado.com"
+						},
+						{
+							"key": "tipo",
+							"value": "simple"
+						},
+						{
+							"key": "nombre",
+							"value": "colorburguer"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modificar Venta",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"numeroDePedido\": 32,\r\n        \"id\": 1,\r\n        \"mailUsuario\": \"calamardo@artista.com\",\r\n        \"nombre\": \"salchiburguer\",\r\n        \"tipo\": \"simple\",\r\n        \"cantidad\": 8,\r\n        \"fechaDePedido\": \"22-10-17\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/UTN/ParcialGenerico/index.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"UTN",
+						"ParcialGenerico",
+						"index.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Devolver Hamburguesa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "numeroDePedido",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "causa",
+							"value": "es muy asquerosa",
+							"type": "text"
+						},
+						{
+							"key": "archivo",
+							"type": "file",
+							"src": "/C:/Users/orne_/OneDrive/Documentos/----PROGRAMACION INFORMATICA----/Programacion III/clienteEnojado.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/UTN/ParcialGenerico/index.php?devolver",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"UTN",
+						"ParcialGenerico",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "devolver",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alta Vender con cupon",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mailUsuario",
+							"value": "perlita@tiburon.com",
+							"type": "text"
+						},
+						{
+							"key": "nombre",
+							"value": "cangreburguer",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "simple",
+							"type": "text"
+						},
+						{
+							"key": "cantidad",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "numeroDePedido",
+							"value": "37",
+							"type": "text"
+						},
+						{
+							"key": "cuponDescuento",
+							"value": "101",
+							"type": "text"
+						},
+						{
+							"key": "archivo",
+							"type": "file",
+							"src": "/C:/Users/orne_/OneDrive/Documentos/----PROGRAMACION INFORMATICA----/Programacion III/ventaCangreburger.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/UTN/ParcialGenerico/index.php?vender",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"UTN",
+						"ParcialGenerico",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "vender",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar venta",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"numeroDePedido\": 37\r\n }\r\n    ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/UTN/ParcialGenerico/index.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"UTN",
+						"ParcialGenerico",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "vender",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Devoluciones Consulta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/UTN/ParcialGenerico/index.php?consultasDev",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"UTN",
+						"ParcialGenerico",
+						"index.php"
+					],
+					"query": [
+						{
+							"key": "consultasDev",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

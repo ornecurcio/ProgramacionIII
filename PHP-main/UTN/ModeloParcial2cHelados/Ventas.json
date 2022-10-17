@@ -1,156 +1,47 @@
 [
     {
+        "_numeroDePedido": 1,
         "_id": 1,
-        "_usuario": {
-            "_id": null,
-            "_email": "carpincho@pampeano.com"
-        },
-        "_producto": {
-            "_id": null,
-            "_sabor": "dulce de leche",
-            "_tipo": "crema",
-            "_precio": null,
-            "_stock": null,
-            "_file": null
-        },
-        "_cantidad": "5",
-        "_fecha": {
-            "date": "2022-10-16 10:00:21.140837",
-            "timezone_type": 3,
-            "timezone": "Europe\/Berlin"
-        },
-        "_file": ".\\ImagenesDeLaVenta\\\\crema_dulce de leche__20221016100021.jpg"
+        "_mailUsuario": "carpincho@pampeano.com",
+        "_sabor": "chocolate",
+        "_tipo": "crema",
+        "_cantidad": 15,
+        "_fechaDePedido": "22-10-16"
     },
     {
-        "_id": 2,
-        "_usuario": {
-            "_id": 3,
-            "_email": "orne@pampeana.com"
-        },
-        "_producto": {
-            "_id": null,
-            "_sabor": "dulce de leche",
-            "_tipo": "crema",
-            "_precio": null,
-            "_stock": null,
-            "_file": null
-        },
-        "_cantidad": "5",
-        "_fecha": {
-            "date": "2022-10-16 10:00:32.861740",
-            "timezone_type": 3,
-            "timezone": "Europe\/Berlin"
-        },
-        "_file": ".\\ImagenesDeLaVenta\\\\crema_dulce de leche__20221016100032.jpg"
+        "_numeroDePedido": 12,
+        "_id": 1,
+        "_mailUsuario": "carpincho@pampeano.com",
+        "_sabor": "chocolate",
+        "_tipo": "crema",
+        "_cantidad": 15,
+        "_fechaDePedido": "22-10-16"
     },
     {
-        "_id": 3,
-        "_usuario": {
-            "_id": 4,
-            "_email": "minupuma@pampeana.com"
-        },
-        "_producto": {
-            "_id": null,
-            "_sabor": "limon",
-            "_tipo": "agua",
-            "_precio": null,
-            "_stock": null,
-            "_file": null
-        },
-        "_cantidad": "5",
-        "_fecha": {
-            "date": "2022-10-16 10:00:54.849947",
-            "timezone_type": 3,
-            "timezone": "Europe\/Berlin"
-        },
-        "_file": ".\\ImagenesDeLaVenta\\\\agua_limon__20221016100054.jpg"
+        "_numeroDePedido": 10,
+        "_id": 1,
+        "_mailUsuario": "carpincho@pampeano.com",
+        "_sabor": "chocolate",
+        "_tipo": "crema",
+        "_cantidad": 15,
+        "_fechaDePedido": "22-10-16"
     },
     {
-        "_id": 4,
-        "_usuario": {
-            "_id": null,
-            "_email": "minupuma@pampeana.com"
-        },
-        "_producto": {
-            "_id": null,
-            "_sabor": "limon",
-            "_tipo": "agua",
-            "_precio": null,
-            "_stock": null,
-            "_file": null
-        },
-        "_cantidad": "5",
-        "_fecha": {
-            "date": "2022-10-16 11:56:33.927064",
-            "timezone_type": 3,
-            "timezone": "Europe\/Berlin"
-        },
-        "_file": ".\\ImagenesDeLaVenta\\\\agua_limon__20221016115633.jpg"
+        "_numeroDePedido": 10,
+        "_id": 101,
+        "_mailUsuario": "carpincho@pampeano.com",
+        "_sabor": "chocolate",
+        "_tipo": "crema",
+        "_cantidad": 15,
+        "_fechaDePedido": "22-10-16"
     },
     {
-        "_id": 5,
-        "_usuario": {
-            "_id": null,
-            "_email": "orne@pampeana.com"
-        },
-        "_producto": {
-            "_id": null,
-            "_sabor": "chocolate",
-            "_tipo": "crema",
-            "_precio": null,
-            "_stock": null,
-            "_file": null
-        },
-        "_cantidad": "15",
-        "_fecha": {
-            "date": "2022-10-16 11:57:06.733360",
-            "timezone_type": 3,
-            "timezone": "Europe\/Berlin"
-        },
-        "_file": ".\\ImagenesDeLaVenta\\\\crema_chocolate__20221016115706.jpg"
-    },
-    {
-        "_id": 6,
-        "_usuario": {
-            "_id": 5,
-            "_email": "minipuma@pampeana.com"
-        },
-        "_producto": {
-            "_id": null,
-            "_sabor": "chocolate",
-            "_tipo": "crema",
-            "_precio": null,
-            "_stock": null,
-            "_file": null
-        },
-        "_cantidad": "15",
-        "_fecha": {
-            "date": "2022-10-16 12:03:18.363502",
-            "timezone_type": 3,
-            "timezone": "Europe\/Berlin"
-        },
-        "_file": ".\\ImagenesDeLaVenta\\\\crema_chocolate__20221016120318.jpg"
-    },
-    {
-        "_id": 7,
-        "_usuario": {
-            "_id": null,
-            "_email": "carpincho@pampeano.com"
-        },
-        "_producto": {
-            "_id": null,
-            "_sabor": "chocolate",
-            "_tipo": "crema",
-            "_precio": null,
-            "_stock": null,
-            "_file": null
-        },
-        "_cantidad": "15",
-        "_fecha": {
-            "date": "2022-10-16 12:05:43.131305",
-            "timezone_type": 3,
-            "timezone": "Europe\/Berlin"
-        },
-        "_file": ".\\ImagenesDeLaVenta\\\\crema_chocolate__20221016120543.jpg"
+        "_numeroDePedido": 32,
+        "_id": 102,
+        "_mailUsuario": "orne@pampeano.com",
+        "_sabor": "limon",
+        "_tipo": "agua",
+        "_cantidad": 20,
+        "_fechaDePedido": "22-10-16"
     }
 ]

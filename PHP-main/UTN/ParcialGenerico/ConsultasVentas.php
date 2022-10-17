@@ -1,73 +1,132 @@
 <?php
+include_once "Venta.php";
+include_once "Producto.php";
+include_once "GuardarLeerJson.php";
+include_once "Toolkit.php";
 
-include_once 'AccesoDatos.php';
-include_once 'Toolkit.php';
-include_once 'GuardarLeerJson.php';
-include_once 'Hamburguesa.php';
+$listaDeProductos = array();
+$listaDeVentas = array();
+$listaDeVentasEntreFechas = array();
+$listaDeVentasPorUsuario = array();
+$listadoDeVentasPorTipo = array();
+$listadoDeVentasPorNombre = array(); 
+$fechaVenta = new DateTime($_GET["fechaVenta"]);
+$fechaMinima = new DateTime($_GET["fechaMinima"]);
+$fechaMaxima = new DateTime($_GET["fechaMaxima"]);
+$cantidadProductosVendidos = 0;
 
-//a- la cantidad de productos vendidos en un día en particular, 
-// si no se pasa fecha, se muestran las del dia de ayer
-if(isset($_GET["fechaVenta"]))
+$listaDeJSON = GuardarLeerJson::LeerJson("Hamburguesas.json");
+//- La cantidad de Hamburguesas vendidas en un día en particular, 
+//si no se pasa fecha, se muestran las del día de ayer.
+//- El listado de ventas entre dos fechas ordenado por nombre.
+//- El listado de ventas de un usuario ingresado.
+//- El listado de ventas de un tipo ingresado.
+//- El listado de ventas de un nombre ingresado.
+
+if($listaDeJSON!=null &&count($listaDeJSON)>0)
 {
-    $fechaVenta = $_GET["fechaVenta"];
+    foreach ($listaDeJSON as $productoJson) 
+    {
+        $productoAuxiliar = new Producto($productoJson["id"],
+                                       $productoJson["nombre"],
+                                       $productoJson["precio"],
+                                       $productoJson["tipo"],
+                                       $productoJson["stock"]);
+
+        array_push($listaDeProductos,$productoAuxiliar);
+    }
 }
-else
+$listaDeJSON = GuardarLeerJson::LeerJson("Ventas.json");
+if($listaDeJSON!=null &&count($listaDeJSON)>0)
 {
-    //AYER
-    $fecha = new DateTime("");
-    $fecha->add(DateInterval::createFromDateString('yesterday'));
-    // HOY
-    //$fecha = new DateTime("now");
-    //$fechaVenta = $fecha->format("Y-m-d");
-}
-$tituloA = "A. SUMA DE VENTAS HECHAS EN LA FECHA: $fechaVenta";
-$sqlA = "SELECT SUM(venta.cantidad)
-         FROM venta
-         WHERE DATE_FORMAT(venta.fecha, '%Y-%m-%d') like '$fechaVenta';";   
-AccesoDatos::imprimirConsulta($sqlA, $tituloA);
+    foreach ($listaDeJSON as $ventaJson)
+    {
+        $ventaAuxiliar = new Venta ($ventaJson["id"],
+                                    $ventaJson["mailUsuario"],
+                                    $ventaJson["nombre"],
+                                    $ventaJson["tipo"],
+                                    $ventaJson["cantidad"],
+                                    $ventaJson["numeroDePedido"],
+                                    $ventaJson["fechaDePedido"]);
 
-// b- el listado de ventas entre dos fechas ordenado por nombre.
-if(isset($_GET["fechaMinima"]) && isset($_GET["fechaMaxima"]))
+        $fechaAuxiliar = new DateTime($ventaAuxiliar->fechaDePedido);
+
+        if($fechaVenta==null)
+        {
+            /*- La cantidad de Hamburguesas vendidas en un día en particular, 
+                 si no se pasa fecha, se muestran las del día de ayer.*/
+            $fechaVenta = new DateTime("16-10-2022");//AYER
+        }
+        if($fechaVenta == $fechaAuxiliar)
+        {
+            $cantidadProductosVendidos+=$ventaAuxiliar->cantidad;
+        }
+
+        //- El listado de ventas de un usuario ingresado.
+        if(strcmp($ventaAuxiliar->mailUsuario,$_GET["usuario"])==0)
+        {
+            array_push($listaDeVentasPorUsuario,$ventaAuxiliar);
+        }
+
+        //- El listado de ventas entre dos fechas ordenado por nombre.
+        if($fechaMinima < $fechaAuxiliar && $fechaAuxiliar < $fechaMaxima)
+        {
+            array_push($listaDeVentasEntreFechas,$ventaAuxiliar);
+        }
+        //- El listado de ventas de un tipo ingresado.
+        if(strcmp($ventaAuxiliar->tipo,$_GET["tipo"])==0)
+        {
+            array_push($listadoDeVentasPorTipo,$ventaAuxiliar);
+        }
+        //- El listado de ventas de un nombre ingresado.
+        if(strcmp($ventaAuxiliar->nombre,$_GET["nombre"])==0)
+        {
+            array_push($listadoDeVentasPorNombre,$ventaAuxiliar);
+        }
+
+        array_push($listaDeVentas,$ventaAuxiliar);
+    }
+}
+
+/* La cantidad de Hamburguesas vendidas en un día en particular, 
+   si no se pasa fecha, se muestran las del día de ayer.*/
+   $stringDate = $fechaVenta->format('d-m-Y');
+echo "Se vendieron $cantidadProductosVendidos productos el día $stringDate\n";
+
+ //- El listado de ventas de un usuario ingresado.
+$usuario = $_GET["usuario"] ;
+echo "El usuario $usuario realizó las siguientes ventas:\n";
+
+foreach ($listaDeVentasPorUsuario as $item) 
 {
-    $fechaMinima = $_GET["fechaMinima"];
-    $fechaMaxima = $_GET["fechaMaxima"];
-    $tituloB = "B. LISTA DE VENTAS HECHAS ENTRE: $fechaMinima y $fechaMaxima:";
+    $item->Mostrar();
+    echo "\n";
 }
 
-$sqlB = "SELECT *
-         FROM venta
-         WHERE venta.fecha BETWEEN '$fechaMinima' AND '$fechaMaxima'
-         ORDER BY venta.id_producto;";
+//- El listado de ventas entre dos fechas ordenado por nombre.
+echo "------------------------------Ventas por fecha:---------------------------------------\n";
 
-AccesoDatos::imprimirConsulta($sqlB, $tituloB);
-
-// c- el listado de ventas de un usuario ingresado
-if(isset($_GET["usuario"]))
+usort($listaDeVentasEntreFechas,"Toolkit::CompararNombres");
+foreach ($listaDeVentasEntreFechas as $item) 
 {
-    $usuario = $_GET["usuario"];
-
-    $sqlC = "SELECT *
-         FROM venta
-         WHERE id_usuario like '$usuario';"; 
-    
-    $tituloC = "C. LISTA DE VENTAS HECHAS POR EL USUARIO NÚMERO $usuario:";
-    AccesoDatos::imprimirConsulta($sqlC, $tituloC);
+   $item->Mostrar();
+   echo "\n";
 }
 
-// d- El listado de ventas de un tipo ingresado.
-if(isset($_GET["tipo"]))
-{
-    $tipo = $_GET["tipo"];
-    $array = GuardarLeerJson::LeerJson("Hamburguesas.json"); // OJO 
-    $idProducto = Hamburguesa::SaberIdPorTipo($tipo, $array);
+//- El listado de ventas de un tipo ingresado.
+ echo "------------------------------Ventas por tipo:--------------------------------------\n";
+ foreach ($listadoDeVentasPorTipo as $item) 
+ {
+    $item->Mostrar();
+    echo "\n";
+ }
 
-    $tituloD = "D. VENTAS DEL TIPO $tipo:";
-
-    $sqlD = "SELECT *
-         FROM venta
-         WHERE id_producto like '$idProducto';"; 
-    
-    AccesoDatos::imprimirConsulta($sqlD, $tituloD);
-}
+//- El listado de ventas de un nombre ingresado.
+ echo "-----------------------------Ventas por nombre:--------------------------------------\n";
+ foreach ($listadoDeVentasPorTipo as $item) 
+ {
+    $item->Mostrar();
+    echo "\n";
+ }
 
 ?>
