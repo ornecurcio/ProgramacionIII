@@ -14,7 +14,7 @@ switch($metodo)
                 include 'AltaVenta.php';
                 break;
             case "cargar":
-                include 'HamburguesaAlta.php';
+                include 'HamburguesaCarga.php';
                 break;          
             case "devolver":
                 include 'DevolverHamburguesa.php';
@@ -28,7 +28,7 @@ switch($metodo)
                break;
             case "consultasDev":
                 include 'ConsultaDevoluciones.php';
-                break;
+            break;
         }
     case "PUT":
         {

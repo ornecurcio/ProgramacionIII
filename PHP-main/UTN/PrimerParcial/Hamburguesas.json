@@ -1,0 +1,44 @@
+[
+    {
+        "nombre": "cangreburguer",
+        "precio": 1200,
+        "tipo": "simple",
+        "stock": 217,
+        "id": 1001
+    },
+    {
+        "nombre": "salchiburguer",
+        "precio": 1000,
+        "tipo": "simple",
+        "stock": 20,
+        "id": 1002
+    },
+    {
+        "nombre": "jellyburguer",
+        "precio": 1800,
+        "tipo": "simple",
+        "stock": 300,
+        "id": 1003
+    },
+    {
+        "nombre": "colorburguer",
+        "precio": 1600,
+        "tipo": "doble",
+        "stock": 450,
+        "id": 1004
+    },
+    {
+        "nombre": "burguerasquerosa",
+        "precio": 2000,
+        "tipo": "doble",
+        "stock": 370,
+        "id": 1005
+    },
+    {
+        "nombre": "cangreburguer con queso",
+        "precio": 1000,
+        "tipo": "simple",
+        "stock": 270,
+        "id": 1006
+    }
+]
